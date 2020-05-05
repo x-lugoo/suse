@@ -1,0 +1,11 @@
+Network Driver Movement
+=======================
+
+Are you looking for a driver that used to be here? During the SLE11-SP3
+development cycle some drivers were moved to a subdirectory of the form
+	drivers/net/ethernet/<vendor>/<device>
+
+This was done following the same move upstream, started in
+	c1abc95 drivers/net/ethernet: Add ethernet dir and config option
+and continued in more per vendor/device commits. It was done to minimize the
+adjustments needed to backport upstream patches coming after the move.

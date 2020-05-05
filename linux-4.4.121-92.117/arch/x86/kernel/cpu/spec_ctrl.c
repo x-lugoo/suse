@@ -1,0 +1,96 @@
+/*
+ * Speculation control stuff
+ *
+ */
+
+#include <asm/msr.h>
+#include <asm/processor.h>
+#include <asm/spec_ctrl.h>
+#include <asm/nospec-branch.h>
+
+/*
+ * Keep it open for more flags in case needed.
+ *
+ * -1 means "not touched by nospec() earlyparam"
+ *
+ * If IBRS is set, IBPB is always set. IBPB can be set independently
+ * on IBRS state (SKL).
+ */
+int ibrs_state = -1;
+static int ibpb_state = -1;
+
+unsigned int notrace x86_ibrs_enabled(void)
+{
+	return ibrs_state == 1;
+}
+EXPORT_SYMBOL_GPL(x86_ibrs_enabled);
+
+unsigned int notrace x86_ibpb_enabled(void)
+{
+	return ibpb_state == 1;
+}
+EXPORT_SYMBOL_GPL(x86_ibpb_enabled);
+
+void x86_disable_ibrs(void)
+{
+	if (x86_ibrs_enabled())
+		x86_spec_ctrl_set(x86_spec_ctrl_base);
+}
+EXPORT_SYMBOL_GPL(x86_disable_ibrs);
+
+void x86_enable_ibrs(void)
+{
+	if (x86_ibrs_enabled())
+		x86_spec_ctrl_set(SPEC_CTRL_IBRS);
+}
+EXPORT_SYMBOL_GPL(x86_enable_ibrs);
+
+/*
+ * Called after upgrading microcode, check CPUID directly.
+ */
+void x86_spec_check(void)
+{
+	if (ibpb_state == 0) {
+		printk_once(KERN_INFO "IBRS/IBPB: disabled\n");
+		return;
+	}
+
+	if (cpuid_edx(7) & BIT(26)) {
+		if (ibrs_state == -1) {
+			/* noone force-disabled IBRS */
+			ibrs_state = 1;
+			printk_once(KERN_INFO "IBRS: initialized\n");
+		}
+		printk_once(KERN_INFO "IBPB: initialized\n");
+		ibpb_state = 1;
+
+		setup_force_cpu_cap(X86_FEATURE_SPEC_CTRL);
+		setup_force_cpu_cap(X86_FEATURE_SPEC_CTRL_MSR);
+	}
+
+	if (boot_cpu_data.x86_vendor == X86_VENDOR_AMD) {
+		if (cpuid_ebx(0x80000008) & BIT(12)) {
+			ibpb_state = 1;
+			printk_once(KERN_INFO "IBPB: Initialized\n");
+		} else {
+			ibpb_state = 0;
+		}
+	}
+}
+EXPORT_SYMBOL_GPL(x86_spec_check);
+
+int nospec(char *str)
+{
+	/*
+	 * Due to way how apply_forced_caps() works, we have to
+	 * explicitly clear the flag here from cas_set, otherwise it'll be
+	 * kept being put into the global mask.
+	 */
+	setup_clear_cpu_cap(X86_FEATURE_SPEC_CTRL);
+	clear_bit(X86_FEATURE_SPEC_CTRL, (unsigned long *)cpu_caps_set);
+	ibrs_state = 0;
+	ibpb_state = 0;
+
+	return 0;
+}
+early_param("nospec", nospec);

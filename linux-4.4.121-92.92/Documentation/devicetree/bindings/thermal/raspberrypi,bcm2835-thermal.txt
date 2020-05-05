@@ -1,0 +1,13 @@
+Raspberry Pi Broadcom BCM2835 thermal control
+
+Required properties:
+
+- compatible : should be "raspberrypi,bcm2835-thermal"
+- firmware : the Raspberry Pi firmware node
+
+Example:
+
+thermal {
+	compatible = "raspberrypi,bcm2835-thermal";
+	firmware = <&firmware>;
+};

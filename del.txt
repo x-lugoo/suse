@@ -21,3 +21,4 @@ DESCRIPTION
        nam(3), getpwuid(3), getgrnam(3), getgrgid(3), gethostbyname(3), and others.
 
 
+https://www.tldp.org/HOWTO/archived/LDAP-Implementation-HOWTO/pamnss.html

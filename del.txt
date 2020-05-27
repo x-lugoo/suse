@@ -1,0 +1,23 @@
+11sp3安装ltrace工具
+
+#ltrace -S -o ltrace-ls  ls –l
+
+vim ./ltrace-ls
+
+getpwuid(0, 1, -264, 0, 0x7ffe2f8adce7 <unfinished ...>
+SYS_socket(1, 526337, 0, 0x7ffe2f8ad700, 0x7f71a6b79cf0)                                 = 4
+SYS_connect(4, 0x7ffe2f8ad4f0, 110, 1, 0x6e75722f7261762f)                               = 0
+SYS_sendto(4, 0x7ffe2f8ad4a0, 19, 16384, 0)
+
+可以看到调用了getpwuid,  getpwuid 会去获取nscd上的缓存
+
+# man nscd 
+
+DESCRIPTION
+       Nscd  is  a  daemon  that provides a cache for the most common name service requests.  The default configuration file, /etc/nscd.conf,
+       determines the behavior of the cache daemon.  See nscd.conf(5).
+
+       Nscd provides caching for accesses of the passwd(5), group(5), and hosts(5) databases through standard libc interfaces, such as getpw-
+       nam(3), getpwuid(3), getgrnam(3), getgrgid(3), gethostbyname(3), and others.
+
+

@@ -22,3 +22,5 @@ DESCRIPTION
 
 
 https://www.tldp.org/HOWTO/archived/LDAP-Implementation-HOWTO/pamnss.html
+
+paul.zirnik@suse.com

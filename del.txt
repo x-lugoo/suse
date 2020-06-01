@@ -33,3 +33,5 @@ https://phoenixnap.com/kb/how-to-flush-dns-cache
 
 
 As they have a test system we wonder if maybe the race-condition window was not hit due to less network traffic, so they might try to ping flood.
+
+test translate

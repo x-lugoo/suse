@@ -25,5 +25,8 @@ https://www.tldp.org/HOWTO/archived/LDAP-Implementation-HOWTO/pamnss.html
 
 paul.zirnik@suse.com
 
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0633
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0634
+
 
 https://phoenixnap.com/kb/how-to-flush-dns-cache

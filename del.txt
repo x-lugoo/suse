@@ -26,6 +26,9 @@ https://www.tldp.org/HOWTO/archived/LDAP-Implementation-HOWTO/pamnss.html
 paul.zirnik@suse.com
 http://129.204.152.32/openssh-11-sp3-ptf-18632.tar.gz
 
+
+tcpdump -n -i eth1 host 192.168.38.127 port 123 
+
 https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0633
 https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0634
 

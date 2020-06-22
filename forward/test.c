@@ -22,3 +22,6 @@ net/ipv6/raw.c:
 1029                         return -EINVAL;
 1030                 inet_sk(sk)->hdrincl = !!val;
 1031                 return 0;
+
+    
+    include/uapi/linux/in6.h:200:#define IPV6_HDRINCL		36

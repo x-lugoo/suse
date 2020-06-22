@@ -25,3 +25,65 @@ net/ipv6/raw.c:
 
     
     include/uapi/linux/in6.h:200:#define IPV6_HDRINCL		36
+
+        
+ man setsockopt
+        
+RETURN VALUE
+       On success, zero is returned for the standard options.  On error, -1 is returned, and errno is set appropriately.
+
+       Netfilter  allows  the programmer to define custom socket options with associated handlers; for such options, the return value on suc-
+       cess is the value returned by the handler.
+           
+ static int do_rawv6_setsockopt(struct sock *sk, int level, int optname,
+                            char __user *optval, unsigned int optlen)
+{
+        struct raw6_sock *rp = raw6_sk(sk);
+        int val;
+
+        if (get_user(val, (int __user *)optval))
+                return -EFAULT;
+
+        switch (optname) {
+        case IPV6_HDRINCL:
+                if (sk->sk_type != SOCK_RAW)
+                        return -EINVAL;
+                inet_sk(sk)->hdrincl = !!val;
+                return 0;
+        case IPV6_CHECKSUM:
+                if (inet_sk(sk)->inet_num == IPPROTO_ICMPV6 &&
+                    level == IPPROTO_IPV6) {
+                        /*
+                         * RFC3542 tells that IPV6_CHECKSUM socket
+                         * option in the IPPROTO_IPV6 level is not
+                         * allowed on ICMPv6 sockets.
+                         * If you want to set it, use IPPROTO_RAW
+                         * level IPV6_CHECKSUM socket option
+                         * (Linux extension).
+                         */
+                        return -EINVAL;
+                }
+
+                /* You may get strange result with a positive odd offset;
+                if (val > 0 && (val&1))
+                        return -EINVAL;
+                if (val < 0) {
+                        rp->checksum = 0;
+                } else {
+                        rp->checksum = 1;
+                        rp->offset = val;
+                }
+
+                return 0;
+
+        default:
+                return -ENOPROTOOPT;
+        }
+}
+
+errno 返回92
+include/uapi/asm-generic/errno.h #define	ENOPROTOOPT	92	/* Protocol not available */
+
+           
+
+        

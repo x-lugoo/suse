@@ -1,0 +1,54 @@
+
+elfutils 是查看elf二进制程序的工具包
+linux-4fey:/home/jeff # rpm -qa | grep elfutils
+elfutils-0.158-6.1.x86_64
+
+linux-4fey:/home/jeff # rpm -e --test elfutils-0.158-6.1.x86_64
+error: Failed dependencies:
+        /usr/bin/eu-nm is needed by (installed) suse-module-tools-12.4-25.1.x86_64
+
+被其它包所依赖，不可以卸载
+
+
+linux-4fey:/home/jeff # rpm -qa | grep perl-libwww
+perl-libwww-perl-6.05-5.2.noarch
+
+
+perl-libwww 是 实现www client 和http server perl moduels 库
+
+linux-4fey:/home/jeff # rpm -qi perl-libwww-perl-6.05-5.2.noarch
+
+Description :
+The libwww-perl collection is a set of Perl modules which provides a
+simple and consistent application programming interface to the
+World-Wide Web.  The main focus of the library is to provide classes
+and functions that allow you to write WWW clients. The library also
+contain modules that are of more general use and even classes that
+help you implement simple HTTP servers.
+
+被其它包所依赖，不可以卸载
+linux-4fey:/home/jeff # rpm -e --test  perl-libwww-perl-6.05-5.2.noarch
+error: Failed dependencies:
+        perl(LWP) >= 5.834 is needed by (installed) perl-RPC-XML-0.77-4.151.noarch
+        perl(LWP::UserAgent) >= 6.04 is needed by (installed) perl-LWP-Protocol-https-6.04-5.4.noarch
+		
+/etc/hosts.equiv 属于 netcfg-11.5-27.1.noarch rpm包
+
+linux-4fey:/home/jeff # rpm -qf /etc/hosts.equiv 
+netcfg-11.5-27.1.noarch
+
+被其它包所依赖，不可以卸载
+linux-4fey:/home/jeff # rpm -e --test netcfg-11.5-27.1.noarch
+error: Failed dependencies:
+        netcfg is needed by (installed) telnet-1.2-165.63.x86_64
+        netcfg is needed by (installed) rsh-0.17-731.12.x86_64
+        netcfg is needed by (installed) icmpinfo-1.11-710.63.x86_64
+        netcfg is needed by (installed) finger-1.3-163.62.x86_64
+        netcfg >= 11.5 is needed by (installed) systemd-228-117.12.x86_64
+        netcfg is needed by (installed) nfs-client-1.3.0-26.3.x86_64
+        netcfg is needed by (installed) nfs-kernel-server-1.3.0-26.3.x86_64
+        netcfg is needed by (installed) postfix-2.11.8-27.11.x86_64
+        netcfg is needed by (installed) patterns-sles-base-12-72.1.x86_64
+		
+		
+vim ~/.bash_history  查看history 记录

@@ -92,3 +92,9 @@ include/uapi/asm-generic/errno.h #define	ENOPROTOOPT	92	/* Protocol not availabl
         https://stackoverflow.com/questions/18055195/getting-the-ipv6-header-as-part-of-the-packet
                 
                 https://linux.die.net/man/3/rmdir
+
+                
+                * Thu Jun 20 2013 neilb@suse.de
+- patches.fixes/SUNRPC-Prevent-an-rpc_task-wakeup-race.patch:
+  SUNRPC: Prevent an rpc_task wakeup race (bnc#825591).
+- commit ba99fcb

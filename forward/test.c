@@ -25,6 +25,9 @@ net/ipv6/raw.c:
 
     
     include/uapi/linux/in6.h:200:#define IPV6_HDRINCL		36
+        
+        
+        https://linux.die.net/man/3/rmdir
 
         
  man setsockopt

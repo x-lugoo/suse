@@ -1,0 +1,5 @@
+~jeff:
+This mitigation has a performance impact, and as such, this will be made configurable via the kernel command line option "nospec" in later releases. Please note that disabling it will disable the mitigation for CVE-2017-5715 and should only be done on systems with trusted users executing only trusted code (!).
+
+~jeff:
+https://www.suse.com/support/kb/doc/?id=000019105

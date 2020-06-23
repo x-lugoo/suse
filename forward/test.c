@@ -98,3 +98,8 @@ include/uapi/asm-generic/errno.h #define	ENOPROTOOPT	92	/* Protocol not availabl
 - patches.fixes/SUNRPC-Prevent-an-rpc_task-wakeup-race.patch:
   SUNRPC: Prevent an rpc_task wakeup race (bnc#825591).
 - commit ba99fcb
+
+      
+      https://bugzilla.suse.com/show_bug.cgi?id=825591
+      
+  We have just released a kernel for SUSE Linux Enterprise 11 SP3 that mentions/fixes this bug. The released kernel versions is 3.0.82-0.7.9.    

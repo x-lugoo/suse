@@ -114,5 +114,9 @@ lost+found/ bin/ boot/ cdrom/ dev/ etc/ home/  lib/
 lib64/ media/ mnt/ opt/ proc/ root/ run/ sbin/ 
 srv/ sys/ tmp/ usr/ var/ vmlinuz vmlinuz.old 
 initrd.img initrd.img.old
-          
+          grub> set root=(hd0,1)
+grub> linux /boot/vmlinuz-3.13.0-29-generic root=/dev/sda1
+grub> initrd /boot/initrd.img-3.13.0-29-generic
+grub> boot
+
           

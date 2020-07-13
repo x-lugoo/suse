@@ -1,0 +1,16 @@
+通过终端例如（ssh)登录shell
+/etc/profiles
+/etc/profile.d/profile.sh
+/etc/bash.bashrc
+~/.bashrc
+
+执行bash命令:
+/etc/bash.bashrc
+~/.bashrc
+
+执行tcsh命令 :
+/etc/csh.cshrc
+
+执行tcsh -l命令:
+/etc/profile/profile.csh
+/etc/csh.cshrc

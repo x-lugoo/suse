@@ -120,3 +120,11 @@ grub> initrd /boot/initrd.img-3.13.0-29-generic
 grub> boot
 
           
+          #1591598967
+free -g
+crontab -l
+crm status
+crontab -l
+crontab -e
+
+          

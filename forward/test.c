@@ -103,3 +103,16 @@ include/uapi/asm-generic/errno.h #define	ENOPROTOOPT	92	/* Protocol not availabl
       https://bugzilla.suse.com/show_bug.cgi?id=825591
       
   We have just released a kernel for SUSE Linux Enterprise 11 SP3 that mentions/fixes this bug. The released kernel versions is 3.0.82-0.7.9.    
+      
+      
+      
+https://www.linux.com/training-tutorials/how-rescue-non-booting-grub-2-linux/      
+                
+                
+      grub> ls (hd0,1)/
+lost+found/ bin/ boot/ cdrom/ dev/ etc/ home/  lib/
+lib64/ media/ mnt/ opt/ proc/ root/ run/ sbin/ 
+srv/ sys/ tmp/ usr/ var/ vmlinuz vmlinuz.old 
+initrd.img initrd.img.old
+          
+          

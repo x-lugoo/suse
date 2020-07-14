@@ -25,3 +25,19 @@
 7394:sshd      28626        0    3r     IPv4          656247455       0t0        TCP 172.16.222.49:ssh->172.16.142.38:60809 (ESTABLISHED)
 7609:sshd      30229        0    3u     IPv4         3793594860       0t0        TCP 172.16.222.49:ssh->172.16.142.38:64251 (ESTABLISHED)
 7765:sshd      31537        0    3u     IPv4          245436780       0t0        TCP 172.16.222.49:ssh->172.16.142.39:61415 (ESTABLISHED)
+
+$ grep "ESTABLISHED" ./open-files.txt -rin | grep -i sshd
+544:sshd        765        0    3r     IPv4         2331859804       0t0        TCP 172.16.222.49:ssh->172.20.57.118:65451 (ESTABLISHED)
+837:sshd       3341        0    3u     IPv4         3982102070       0t0        TCP 172.16.222.49:ssh->172.16.142.39:52042 (ESTABLISHED)
+1839:sshd       4850        0    3u     IPv4           23932554       0t0        TCP 172.16.222.49:ssh->172.16.142.38:56854 (ESTABLISHED)
+5281:sshd       8115        0    3r     IPv4         1529563356       0t0        TCP 172.16.222.49:ssh->172.16.142.38:57873 (ESTABLISHED)
+5363:sshd       8553        0    3u     IPv4         3769743317       0t0        TCP 172.16.222.49:ssh->172.16.142.38:63974 (ESTABLISHED)
+5504:sshd       9934        0    3u     IPv4         3965590072       0t0        TCP 172.16.222.49:ssh->172.16.142.38:49847 (ESTABLISHED)
+5835:sshd      13421        0    3r     IPv4         1882796954       0t0        TCP 172.16.222.49:ssh->172.16.142.38:61248 (ESTABLISHED)
+6019:sshd      14871        0    3u     IPv4         3996256422       0t0        TCP 172.16.222.49:ssh->172.16.142.39:52291 (ESTABLISHED)
+6175:sshd      17490        0    3u     IPv4         3801023917       0t0        TCP 172.16.222.49:ssh->172.16.142.39:59859 (ESTABLISHED)
+6289:sshd      18063        0    3r     IPv4         2283347119       0t0        TCP 172.16.222.49:ssh->172.16.142.38:50528 (ESTABLISHED)
+7394:sshd      28626        0    3r     IPv4          656247455       0t0        TCP 172.16.222.49:ssh->172.16.142.38:60809 (ESTABLISHED)
+7609:sshd      30229        0    3u     IPv4         3793594860       0t0        TCP 172.16.222.49:ssh->172.16.142.38:64251 (ESTABLISHED)
+7765:sshd      31537        0    3u     IPv4          245436780       0t0        TCP 172.16.222.49:ssh->172.16.142.39:61415 (ESTABLISHED)
+

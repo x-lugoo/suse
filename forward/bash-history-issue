@@ -1,0 +1,4 @@
+./open-files.txt:837:sshd       3341        0    3u     IPv4         3982102070       0t0        TCP 172.16.222.49:ssh->172.16.142.39:52042 (ESTABLISHED)
+./open-files.txt:6019:sshd      14871        0    3u     IPv4         3996256422       0t0        TCP 172.16.222.49:ssh->172.16.142.39:52291 (ESTABLISHED)
+./open-files.txt:6175:sshd      17490        0    3u     IPv4         3801023917       0t0        TCP 172.16.222.49:ssh->172.16.142.39:59859 (ESTABLISHED)
+./open-files.txt:7765:sshd      31537        0    3u     IPv4          245436780       0t0        TCP 172.16.222.49:ssh->172.16.142.39:61415 (ESTABLISHED)

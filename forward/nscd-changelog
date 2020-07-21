@@ -1,0 +1,1238 @@
+* Tue May 14 2019 schwab@suse.de
+- regex-read-overrun.patch: regex: fix read overrun (CVE-2019-9169,
+  bsc#1127308, BZ #24114)
+
+* Tue May 07 2019 schwab@suse.de
+- regex-parse-reg-exp.patch: ERE '0|()0|\1|0' causes regexec undefined
+  behavior (CVE-2009-5155, bsc#1127223, BZ #18986)
+
+* Mon Apr 29 2019 matz@suse.com
+- japanese-era-name-may-2019.patch: ja_JP locale: Add entry for the new
+  Japanese era (bsc#1100396, BZ #22964)
+
+* Wed Oct 31 2018 schwab@suse.de
+- glob-tilde-memleak.patch: fix memory leak in glob with GLOB_TILDE
+  (CVE-2017-15671, bsc#1064569, BZ #22325)
+
+* Mon Oct 29 2018 schwab@suse.de
+- dlclose-assert-init-called.patch: remove improper assert in dlclose
+  (bsc#1110174, BZ #11941)
+
+* Wed Oct 10 2018 schwab@suse.de
+- pthread-attr-getaffinity-bounds.patch: Avoid access beyond memory bounds
+  in pthread_attr_getaffinity_np (bsc#1110170, BZ #15618)
+
+* Mon Sep 17 2018 schwab@suse.de
+- Fix inaccuracies in casin, cacos, casinh, cacosh (bsc#1058774, BZ
+  [#10357], BZ #10716, BZ #13305, BZ #14994, BZ #14996, BZ #15023, BZ
+  [#15062], BZ #15287, BZ #15307, BZ #15327)
+  * 0001-Fix-sign-errr-in-some-cacosh-results.patch
+  * 0002-Use-Kahan-s-formula-in-cacosh.patch
+  * 0003-Fix-signs-of-zeros-from-casinh-cacosh-etc.-bug-10716.patch
+  * 0004-Fix-casinh-casin-inaccuracy-from-cancellation-bug-14.patch
+  * 0005-Fix-casinh-casin-overflow-bug-14996.patch
+  * 0006-Fix-cacos-real-part-inaccuracy-for-result-real-part-.patch
+  * 0007-Fix-cacosh-inaccuracy-and-spurious-exceptions-bug-15.patch
+  * 0008-Fix-casinh-spurious-underflows-away-from-i-i-bug-150.patch
+  * 0009-Fix-casinh-inaccuracy-for-argument-with-imaginary-pa.patch
+  * 0010-Fix-casinh-inaccuracy-near-i-imaginary-part-1-bug-15.patch
+  * 0011-Fix-casinh-inaccuracy-for-imaginary-part-1.0-real-pa.patch
+
+* Thu Sep 13 2018 schwab@suse.de
+- glob-tilde-overflow.patch: Fix buffer overflows with GLOB_TILDE
+  (CVE-2017-15670, CVE-2017-15804, bsc#1064580, bsc#1064583, BZ #22320, BZ
+  [#22332])
+- resolv-internal-qtype.patch: Fix crash with internal QTYPE
+  (CVE-2015-5180, bsc#941234, BZ #18784)
+
+* Mon Jul 30 2018 schwab@suse.de
+- nss-handle-oom.patch: handle OOM in NSS (bsc#1086690)
+
+* Thu Jul 05 2018 schwab@suse.de
+- realpath-ssize-max-overflow.patch: Fix overflow in path length
+  computation (CVE-2018-11236, bsc#1094161, BZ #22786)
+
+* Thu May 17 2018 schwab@suse.de
+- res-send-enomem.patch: Fix crash in resolver on memory allocation
+  failure (bsc#1086690, BZ #23005)
+
+* Tue Mar 06 2018 schwab@suse.de
+- make-request-stack-overflow.patch: fix allocation in in6ailist_add
+  (bnc#1077763)
+
+* Thu Feb 22 2018 schwab@suse.de
+- compat-initgroups-alloca.patch: Fix allocation in nss_compat for large
+  number of memberships to a group (bsc#1079625, BZ #13761)
+
+* Mon Feb 19 2018 schwab@suse.de
+- clntudp-call-use-after-free.patch: Avoid use-after-free read access in
+  clntudp_call (CVE-2017-12133, bsc#1081556, BZ #21115)
+
+* Mon Feb 12 2018 schwab@suse.de
+- rfc3484-sort.patch: Fix incorrect getaddrinfo assertion trigger
+  (bsc#1076871, BZ #9954)
+
+* Tue Feb 06 2018 schwab@suse.de
+- getaddrinfo-af-unspec-referral.patch: Do not fail if one of the two
+  responses to AF_UNSPEC fails (bsc#978209, BZ #14308, BZ #12994, BZ
+  [#13651])
+- sunrpc-xdr-memory.patch: Fix memory leak after deserialization failure
+  in xdr_bytes, xdr_string (CVE-2017-8804, bsc#1037930, BZ #21461)
+- reduce-edns-payload.patch: Reduce EDNS payload size to 1200 bytes
+  (CVE-2017-12132, bsc#1051791, BZ #21361)
+- memalign-overflow.patch: Fix integer overflows in internal memalign and
+  malloc functions (CVE-2018-6485, CVE-2018-6551, bsc#1079036, BZ #22343,
+  BZ #22774)
+
+* Tue Jan 02 2018 schwab@suse.de
+- realpath-underflow.patch: Avoid underflow of malloced area
+  (CVE-2018-1000001, bsc#1074293)
+
+* Tue Jun 06 2017 schwab@suse.de
+- ld-library-path-suid.patch: process only a single occurrence of LD_AUDIT
+
+* Tue May 23 2017 schwab@suse.de
+- ld-hwcap-mask-suid.patch: Ignore and remove LD_HWCAP_MASK for AT_SECURE
+  programs (BZ #21209)
+- ld-library-path-suid.patch: Completely ignore LD_LIBRARY_PATH for
+  AT_SECURE=1 programs (CVE-2017-1000366, bsc#1039357)
+
+* Thu Jul 21 2016 schwab@suse.de
+- nscd-gc-crash.patch: Fix nscd assertion failure in gc (bsc#965699, BZ
+  [#19755])
+
+* Tue Jul 05 2016 schwab@suse.de
+- relocate-dependency-order.patch: relocate DSOs in dependency order
+  (bsc#986302)
+
+* Tue May 24 2016 schwab@suse.de
+- getaddrinfo-ipv6-sanity.diff: Remove.  It breaks services that start
+  before IPv6 is up (bsc#931399)
+- glob-altdirfunc.patch: Do not copy d_name field of struct dirent
+  (CVE-2016-1234, bsc#969727, BZ #19779)
+- nss-dns-memleak-2.patch: fix memory leak in _nss_dns_gethostbyname4_r
+  (bsc#973010)
+- nss-dns-getnetbyname.patch: fix stack overflow in
+  _nss_dns_getnetbyname_r (CVE-2016-3075, bsc#973164, BZ #19879)
+- getaddrinfo-hostent-conv-stack-overflow.patch: getaddrinfo stack
+  overflow in hostent conversion (CVE-2016-3706, bsc#980483, BZ #20010)
+- clntudp-call-alloca.patch: do not use alloca in clntudp_call
+  (CVE-2016-4429, bsc#980854, BZ #20112)
+
+* Thu Jan 28 2016 schwab@suse.de
+- hcreate-overflow-check.patch: Improve check against integer wraparound
+  in hcreate
+
+* Wed Jan 20 2016 schwab@suse.de
+- getdate-whitespace.patch: Accept leading and trailing spaces in getdate
+  input string (bsc#930721, BZ #15346)
+- power8-platform.patch: Recognize power8 platform (bsc#942317)
+- ld-pointer-guard.patch: Always enable pointer guard (bsc#950944, BZ
+  [#18928])
+- dl-iterate-phdr-deadlock.patch: Fix deadlock in __dl_iterate_phdr
+  (bsc#956988)
+- send-dg-buffer-overflow.patch: Fix getaddrinfo stack-based buffer
+  overflow (CVE-2015-7547, bsc#961721, BZ #18665)
+- strftime-range-check.patch: Add range check on time fields
+  (CVE-2015-8776, bsc#962736, BZ #18985)
+- hcreate-overflow-check.patch: Handle overflow in hcreate (CVE-2015-8778,
+  bsc#962737, BZ #18240)
+- refactor-nan-parsing.patch: Refactor strtod parsing of NaN payloads
+  (CVE-2014-9761, bsc#962738, BZ #16962)
+- catopen-unbound-alloca.patch: Fix unbound alloca in catopen
+  (CVE-2015-8779, bsc#962739, BZ #17905)
+
+* Tue Sep 22 2015 schwab@suse.de
+- nss-files-long-lines-2.patch: Properly reread entry after failure in
+  nss_files getent function (bsc#945779, BZ #18991)
+
+* Wed Aug 19 2015 schwab@suse.de
+- Create links to power7 libraries for power8 platform (bsc#942317)
+
+* Wed Jul 08 2015 schwab@suse.de
+- disable-pt-chown.patch: Disable use of pt_chown (CVE-2013-2207,
+  bnc#830257, BZ #15755)
+- fix-locking-in-_IO_flush_all_lockp.patch: Fix locking in
+  _IO_flush_all_lockp (bsc#851280)
+- nss-separate-state-getXXent.patch: Separate internal state between
+  getXXent and getXXbyYY NSS calls (CVE-2014-8121, bsc#918187, BZ #18007)
+- nss-dns-buffer-overflow.patch: Fix buffer overflow in nss_dns
+  (CVE-2015-1781, bsc#927080, BZ #18287)
+- dns-ptr-ttl.patch: Record TTL also for DNS PTR queries (bsc#928723, BZ
+  [#18513])
+
+* Thu Jun 18 2015 schwab@suse.de
+- bcopy-textrel.patch: Fix bad TEXTREL in glibc.i686 (bsc#935286)
+
+* Thu Jun 11 2015 matz@suse.com
+- glibc-libm-fix-fpe-uninit.diff: Fix floating point exceptions
+  in some circumstances with exp() and friends (bsc#933903).
+
+* Thu Jun 11 2015 schwab@suse.de
+- default-stack-perms.patch: Make PowerPC64 default to nonexecutable stack
+  (bsc#933770)
+
+* Wed May 27 2015 schwab@suse.de
+- dlopen-invalid-free.patch: Fix invalid free in ld.so (bsc#932059, BZ
+  [#14293])
+
+* Tue May 05 2015 schwab@suse.de
+- fnmatch-read-eos.patch: Fix read past end of pattern in fnmatch
+  (bsc#920338, BZ #17062, BZ #18032, BZ #18036)
+
+* Thu Apr 23 2015 matz@suse.de
+- bandaid-dtv-surplus.diff: Increase DTV_SURPLUS limit to avoid
+  bsc #919678.
+
+* Mon Feb 16 2015 schwab@suse.de
+- getaddrinfo-ipv6-only.patch: Don't return IPv4 addresses when looking
+  for IPv6 addresses only (bsc#904461)
+- wordexp-wrde-nocmd.patch: wordexp fails to honour WRDE_NOCMD
+  (CVE-2014-7817, bsc#906371, BZ #17625)
+- res-send-fd-reuse.patch: Fix invalid file descriptor reuse while sending
+  DNS query (CVE-2013-7423, bsc#915526, BZ #15946)
+- wscanf-buffer-overflow.patch: Fix buffer overflow in wscanf
+  (CVE-2015-1472, bsc#916222, BZ #16618)
+- Remove inaccurate assembler implementations of ceill, floorl,
+  nearbyintl, roundl, truncl for PowerPC64 (bsc#917072)
+
+* Thu Jan 29 2015 schwab@suse.de
+- cpuid-leaf4-cache.patch: Add missing hunks
+
+* Tue Jan 27 2015 schwab@suse.de
+- nss-dns-infinite-loop.patch: Avoid infinite loop in nss_dns getnetbyname
+  (CVE-2014-9402, bsc#910599, BZ #17630)
+
+* Thu Jan 22 2015 schwab@suse.de
+- fork-io-user-lock.patch: Don't touch user-controlled stdio locks in
+  forked child (bsc#864081, BZ #12847)
+- futex-wait-requeue-pi.patch: Unlock mutex before going back to waiting
+  for PI mutexes (bsc#891843, BZ #14417)
+- iconv-ibm-sentinel-check.patch: Fix crashes on invalid input in IBM
+  gconv modules (CVE-2014-6040, CVE-2012-6656, bsc#894553, bsc#894556, BZ
+  [#17325], BZ #14134)
+- cpuid-leaf4-cache.patch: Implement x86 cpuid handling of leaf4 for cache
+  information (bsc#903288, BZ #12587)
+- make-request-loop.patch: Fix infinite loop in check_pf (bsc#909053, BZ
+  [#12926])
+
+* Mon Jan 19 2015 schwab@suse.de
+- gethostbyname-digits-dots.patch: Fix parsing of numeric hosts in
+  gethostbyname_r (CVE-2015-0235, bsc#913646, BZ #15014)
+
+* Tue Aug 26 2014 schwab@suse.de
+- disable-gconv-translit-modules.patch: Disable gconv transliteration
+  module loading (CVE-2014-5119, bnc#892073, BZ #17187)
+- setenv-alloca.patch: Avoid unbound alloca in setenv (bnc#892065)
+- printf-multibyte-format.patch: Don't parse %s format argument as
+  multibyte string (bnc#888347)
+
+* Wed Aug 06 2014 schwab@suse.de
+- setlocale-directory-traversal.patch: Directory traversal in locale
+  environment handling (CVE-2014-0475, bnc#887022, BZ #17137)
+- ibm93x-redundant-shift-si.patch: Avoid redundant shift character in
+  iconv output at block boundary (bnc#886416, BZ #17197)
+- Don't forcefully enable nscd on update (bnc#882028)
+
+* Mon Jun 23 2014 schwab@suse.de
+- nss-files-long-lines.patch: Don't ignore too long lines in nss_files
+  (bnc#883217, BZ #17079)
+
+* Mon Jun 16 2014 schwab@suse.de
+- psfaa.patch: copy filename argument in posix_spawn_file_actions_addopen
+  (CVE-2014-4043, bnc#882600, BZ #17048)
+
+* Wed May 14 2014 schwab@suse.de
+- alloca-use.patch: fix various alloca uses
+
+* Tue May 13 2014 schwab@suse.de
+- nss-nis-stack-use.patch: avoid unbound stack use in nis nss module
+
+* Wed May 07 2014 schwab@suse.de
+- mcount-atomic.patch: fix crash in profiling (bnc#872832)
+- fix-locking-in-_IO_cleanup.patch: fix PLT reference
+
+* Mon Mar 31 2014 schwab@suse.de
+- getaddrinfo-overflow2.patch: fix stack frame overflow flaw
+  (CVE-2013-4458, bnc#847227)
+- nss-file-large-file.patch: fix reading large /etc/hosts (CVE-2013-4357,
+  bnc#844309)
+- nss-dns-memleak.patch: fix memory leak in nss_dns (bnc#863499)
+- nss-dns-retry.patch: properly retry after insufficient buffer space
+  (bnc#863499)
+- sched-cpu-ppc-vdso.patch: implement VDSO support for sched_getcpu
+  (bnc#854445)
+- gettimeofday-ppc-ifunc.patch: implement VDSO support for gettimeofday
+  (bnc#854445)
+- allocatestack-fork-race.patch: avoid race between {,__de}allocate_stack
+  and __reclaim_stacks during fork (bnc#836746)
+
+* Thu Sep 12 2013 schwab@suse.de
+- Fix integer overflows in malloc (CVE-2013-4332, bnc#839870)
+
+* Mon Sep 09 2013 schwab@suse.de
+- Fix buffer overflow in glob (bnc#691365)
+- Fix buffer overflow in strcoll (CVE-2012-4412, bnc#779320)
+- Update mount flags in <sys/mount.h> (bnc#791928)
+- Fix buffer overrun in regexp matcher (CVE-2013-0242, bnc#801246)
+- Fix memory leaks in dlopen (bnc#811979)
+- Fix stack overflow in getaddrinfo with many results (CVE-2013-1914,
+  bnc#813121)
+- Don't raise UNDERFLOW in tan/tanf for small but normal argument
+  (bnc#819347)
+- Properly cross page boundary in SSE4.2 implementation of strcmp
+  (bnc#822210)
+- Fix robust mutex handling after fork (bnc#827811)
+- Fix missing character in IBM-943 charset (bnc#828235)
+- Fix use of alloca in gaih_inet (bnc#828637)
+- Initialize pointer guard also in static executables (CVE-2013-4788,
+  bnc#830268)
+- Fix readdir_r with long file names (CVE-2013-4237, bnc#834594)
+
+* Tue May 07 2013 schwab@suse.de
+- Fix check for XEN build in glibc_post_upgrade that causes missing init
+  re-exec (bnc#818628)
+
+* Mon Apr 15 2013 schwab@suse.de
+- Fix locking in _IO_cleanup (bnc#796982)
+
+* Mon Mar 04 2013 schwab@suse.de
+- Fix stack overflow in getaddrinfo when host has many addresses
+  (bnc#785041)
+
+* Mon Feb 25 2013 schwab@suse.de
+- Make sure /var/run/nscd exists (bnc#793146)
+- Force eval of expression before restoring exceptions (bnc#795129)
+
+* Wed Jan 16 2013 schwab@suse.de
+- Disable nscd host caching by default (fate#313420)
+
+* Thu Nov 29 2012 schwab@suse.de
+- Fix resolver when first query fails, but second one succeeds
+  [bnc#767266]
+
+* Wed Nov 28 2012 schwab@suse.de
+- Replace glibc-fix-lookup-12561.diff with correct fix [bnc#783060]
+
+* Tue Nov 27 2012 schwab@suse.de
+- Correct pthread_cond_timedwait patch [bnc#750741, bnc#777233]
+- Fix localplt error.
+
+* Mon Nov 19 2012 schwab@suse.de
+- Fix strtod integer/buffer overflows [bnc#775690]
+- Fix vfprintf handling of many format specifiers [bnc#770891]
+
+* Wed May 23 2012 matz@suse.de
+- Fix domain error for small arguments to sin().  [bnc #763512]
+
+* Wed May 09 2012 matz@suse.de
+- Update getaddrinfo-ipv6-sanity.diff to work in more situations.
+  [bnc #684534]
+- Add missing symbols for libm (pow10 and pow10f).  [bnc #760795]
+
+* Tue Apr 24 2012 jfch@suse.com
+- Fixed pthread_cond_timedwait.  [bnc#750741]
+
+* Tue Apr 10 2012 jfch@suse.com
+- Fixed segfault in libpthread.  [bnc#741345]
+
+* Mon Apr 02 2012 jfch@suse.com
+- Fixed asserting in vi_VN.tcvn.  [bnc#746824]
+
+* Fri Mar 02 2012 aj@suse.de
+- vfprintf: validate nargs and maybe allocate from heap (bnc#747768)
+
+* Fri Feb 10 2012 sbrabec@suse.cz
+- Fixed false regex match on incomplete chars in EUC-JP [bnc#743689]
+
+* Thu Feb 09 2012 matz@suse.de
+- Don't refer to __memmove_chk_ssse3 in static libc.  [bnc #745658]
+
+* Fri Feb 03 2012 matz@suse.de
+- Mark locale.alias, gconv-modules and gconv-modules.cache
+  as config files.  [bnc #744996]
+
+* Fri Jan 13 2012 matz@suse.de
+- Change ld.so.conf to have /usr/local/lib64 in front of
+  /usr/lib64 (like the non-64bit paths were already).  [bnc #671725]
+
+* Thu Jan 12 2012 matz@suse.de
+- Fix memset on x86_64 for sizes with set sign-bit.
+
+* Wed Jan 11 2012 matz@suse.de
+- Disable backward copying memcpy and friends on i686 and x86_64.
+  [bnc #738067]
+
+* Mon Dec 19 2011 rguenther@suse.com
+- Check values from file header in __tzfile_read.  [bnc #735850, CVE-2009-5029]
+
+* Mon Nov 14 2011 matz@suse.de
+- Fix pow(nan,inf), update trigonometric routines,
+  fix fmod(nan,inf).  [bnc #729924]
+
+* Wed Oct 26 2011 matz@suse.de
+- Fix PR12561, a symbol lookup error related to dlclosed
+  modules needing other libraries for the first time.  [bnc #725776]
+
+* Fri Oct 07 2011 matz@suse.de
+- Check OSXSAVE bit for proper AVX support.  [bnc #718905]
+
+* Fri Sep 16 2011 matz@suse.de
+- Add patch glibc-fix-pr13013.diff.  [bnc #716918]
+- Add patch glibc-fix-pr13028.diff.
+
+* Fri Sep 02 2011 matz@suse.de
+- Update x86_64 libm routines to AMD libm 3.0.  [fate #312148]
+
+* Wed Aug 17 2011 dmueller@suse.de
+- add baselibs.conf to sources
+
+* Mon Aug 15 2011 matz@suse.de
+- update crypt_blowfish to version 1.2 (bnc#700876, CVE-2011-2483)
+  * due to the signedness bug fix 2a hashes are incompatible with
+    previous versions if the password contains 8bit chracters!
+
+* Fri Aug 12 2011 matz@suse.de
+- Revert seeking on fclose, incomplete implementation of POSIX
+  behaviour can confuse current users.  [bnc #711829]
+
+* Thu Jul 21 2011 matz@suse.de
+- Fix backtrace() for recursive function on some architectures.
+  [bnc #700360]
+
+* Wed Jul 20 2011 matz@suse.de
+- Add check for RTLD_DEEPBIND environment variable
+  to disable deepbinding of NSS modules.  [bnc #694998]
+- Disable rewriting ::1 to 127.0.0.1 for /etc/hosts
+  entries.  [bnc #684534]
+
+* Wed Jul 13 2011 matz@suse.de
+- Fix crash (access-after-free) in dl_lookup_x.  [bnc #703140]
+
+* Mon Jul 11 2011 matz@suse.de
+- Disable some sse4 string routines that are miscompiled.
+
+* Mon Jul 04 2011 matz@suse.de
+- Fix query for second nameserver if first one fails.  [bnc #678195]
+
+* Fri Jul 01 2011 matz@suse.de
+- Add port 657 to bindresvport.blacklist.  [fate #311668]
+- Add kernel feature check for 64bit register support in
+  31bit emulation.  [fate #311923]
+
+* Tue Jun 28 2011 matz@suse.de
+- Enable new string routines for real.  [fate #311883]
+
+* Fri Jun 17 2011 matz@suse.de
+- Add new string routines from glibc 2.13, remove old amd64
+  specific ones.  [fate #311883]
+
+* Fri Jun 10 2011 matz@novell.com
+- Update to 2.11.3 [fate #311972].
+  Remove obsolete patches:
+    glibc-nameserver-localhost.diff
+    glibc-memchr-ia64.diff
+    glibc-utf-s390.diff
+    glibc-valloc-assert.diff
+    glibc-dl-x86-64-pc32.diff
+    glibc-sap-captialsharps.diff
+    glibc-getnprocs.diff
+    glibc-nis-initgroups.diff
+    glibc-2.11.2-elftag.diff
+    glibc-2.11.2-mntent.diff
+    glibc-2.11.3-audit.diff
+    glibc-2.11.1-stdio-proto.diff
+    glibc-2.11.3-tcb-avx.diff
+    glibc-vfprintf-positional.diff
+    glibc-2.12-fnmatch.diff
+    glibc-2.11.3-namespace-race.diff
+    glibc-ppc64-writev.diff
+    glibc-2.11.3-locale-escape.diff
+    ld-rpath-setuid.diff
+    glibc-fnmatch-integeroverflow.diff
+    libm-sqrtl-ppc64.diff
+
+* Thu May 12 2011 ro@suse.de
+- rediff patches to remove fuzz
+
+* Thu Apr 28 2011 pbaudis@suse.cz
+- Restrict $ORIGIN expansion within setuid executable rpaths by ld.so,
+  leading to potential security vulnerability [bnc#687510]
+- Fixed integer overflow vulnerability in fnmatch() [bnc#625835]
+- Fix sqrtl() accuracy on ppc64 [bnc#659567]
+
+* Tue Apr 19 2011 mcihar@suse.de
+- add bug-685405.diff to fix times syscall with NULL (bnc#685405)
+
+* Fri Apr 01 2011 lnussel@suse.de
+- fix typo in baselibs.conf
+
+* Mon Mar 21 2011 pbaudis@suse.cz
+- Fixed arbitrary code execution in case of passing extremely large
+  strings as fnmatch() parameters [bnc#625835]
+- Fix setxid() race condition [bnc#645303]
+- Add baselibs.conf gconv-modules.d generator post block for
+  32-bit glibc-locale package [bnc#649634]
+- Fix ld.so namespace race condition [bnc#664541]
+- Fix writev() return value wrapping around on ppc64 [bnc#673111]
+- Fix ldd executing loader specified in examined binary [bnc#677787]
+- Fix locale output not being escaped to be shell-safe [bnc#678031]
+
+* Fri Feb 04 2011 pbaudis@suse.cz
+- Fixed a couple of bad stdio prototypes triggering compilation failures
+  with C++ and -U_GNU_SOURCE [bnc#625591]
+- Fixed insufficient TCB alignment for AVX machines [bnc#647965]
+- Introduce MALLOC_ARENA_MAX and M_ARENA_MAX support [bnc#659090]
+- Fixed stack unwinding past glibc _fini function (proper showing
+  of destructor backtraces) [bnc#585879]
+- Fixed stack corruption in *printf() with large number of positional
+  specifiers [bnc#666179]
+- Introduce support for shadow database based on NIS passwd.adjunct
+  [bnc#569091]
+
+* Wed Oct 27 2010 pbaudis@suse.cz
+- Add missing iconvconfig for refreshing gconv.cache to glibc-locale %post
+
+* Mon Oct 25 2010 pbaudis@suse.cz
+- Fix two LD_AUDIT security vulnerabilities: spurious $ORIGIN expansion
+  and missing setuid library check when running as setuid [bnc#646960]
+
+* Mon Oct 11 2010 pbaudis@suse.cz
+- Redo the hconf setup; disabling gethostbyname4() is not enough
+  for same-family records [bnc#572188]
+
+* Thu Aug 12 2010 dmueller@suse.de
+- rediff patches with fuzz
+
+* Wed Jul 07 2010 pbaudis@suse.cz
+- Fix NIS-compat initgroups routine to work reliably over multiple
+  invocations [bnc#607064]
+- Fix integer overflow in ld.so --verify code [bnc#592941]
+- Fix addmntent() allowing /etc/mtab corruption by newlines [bnc#594263]
+
+* Sat Apr 24 2010 pbaudis@suse.cz
+- Fix hconf setup change, I have made mistake during testing;
+  we cannot setup hconf within nscd easily since we have local
+  instance.  For now, just disable gethostbyname4() in aicache.
+
+* Fri Apr 23 2010 pbaudis@suse.cz
+- Fix missing hconf setup in nscd - this meant `multi on` in
+  /etc/host.conf was ignored when nscd was used, breaking e.g.
+  resolving of multi-AF records in /etc/hosts [bnc#572188]
+
+* Sat Apr 10 2010 pbaudis@suse.cz
+- Fix gconv cache generation on s390 [bnc#592944]
+
+* Tue Apr 06 2010 pbaudis@suse.cz
+- Temporarily disable time() VDSO usage on PPC64 due to race condition
+  danger [bnc#590216]
+
+* Wed Mar 24 2010 pbaudis@suse.cz
+- Fix get_nprocs() large CPU count handling [bnc#590665]
+
+* Tue Mar 23 2010 pbaudis@suse.cz
+- Fix interference of STB_GNU_UNIQUE and prelink [bnc#586979]
+- Make time() use VDSO on PPC64 [bnc#590216]
+- Make pthread_cond_timedway() use VDSO on PPC64 [bnc#590517]
+
+* Thu Mar 18 2010 pbaudis@suse.cz
+- Add PreReq for cat to glibc-locale [bnc#588997]
+
+* Fri Mar 05 2010 pbaudis@suse.cz
+- Fix spurious mapping from lowercase sharp s to uppercase sharp S
+  which is less standard and causes problems for ISO encodings [bnc#541773]
+
+* Mon Mar 01 2010 pbaudis@suse.cz
+- Fix spurious overflow messages on some R_X86_64_PC32 relocations,
+  patch by Richard Guenther [bnc#583019]
+
+* Wed Feb 24 2010 pbaudis@suse.cz
+- Fix assertion failures within valloc(), patch by Michael Matz
+  [bnc#581391]
+
+* Wed Feb 17 2010 pbaudis@suse.cz
+- S/390: Disable two UTF conversion instructions due to the hardware
+  mishandling some error conditions in the input stream [bnc#579871]
+
+* Mon Feb 15 2010 pbaudis@suse.cz
+- Further fix previous fix
+
+* Thu Feb 11 2010 pbaudis@suse.cz
+- Fix another upgrade problem on power5 and older - correctly remove
+  the old optimized libraries; found out by matz@suse.de [bnc#563978]
+
+* Fri Feb 05 2010 pbaudis@suse.cz
+- Final fix for memchr() overflow on IA64 provided by upstream
+  [bnc#567516]
+
+* Thu Jan 28 2010 pbaudis@suse.cz
+- Fix another memchr() overflow on IA64; another known one still
+  remains a mystery [bnc#567516]
+
+* Wed Jan 27 2010 pbaudis@suse.cz
+- Remove now-obsolete powerpc-cpu addon usage [bnc#572819]
+- Fix statfs64() on IA64 in 32-bit mode ia32el [bnc#534828]
+
+* Tue Jan 26 2010 pbaudis@suse.cz
+- Fix upgrade from previous distributions on power5 and older [bnc#563978]
+
+* Tue Jan 19 2010 pbaudis@suse.cz
+- Disable AMD-optimized strncmp() on x86_64 that is getting miscompiled
+  by the assembler [bnc#540647]
+
+* Mon Jan 18 2010 pbaudis@suse.cz
+- Upgrade to latest release/2.11/master - glibc-2.11.1-11c19d374bd4
+  - Just trivial changes - version bump to 2.11.1, NIS-related
+    resolver fixes, ELF lookup race, .h typo fix and regcomp
+    out-of-memory handling miss
+
+* Fri Dec 04 2009 pbaudis@suse.cz
+- Upgrade to latest release/2.11/master - glibc-2.11-1db8b35487c8:
+  - This should really become 2.11.1
+  - Only few bugfixes, weekday updated in three locales
+- Retired patches:
+  glibc-ia64-memchr.diff
+
+* Fri Nov 20 2009 pbaudis@suse.cz
+- Upgrade to latest release/2.11/master - glibc-2.11-1bc1954c7357:
+  - This snapshot is slated to become 2.11.1 if all goes well
+  - Mix of fixes for various recently found out issues
+- Retired patches:
+  glibc-ifunc-dlsym-fixup.diff
+- [IA64] Fix memchr() on mmap(MAP_SHARED) boundary [fix lighttpd crashes]
+- Again use 127.0.0.1 as default nameserver in case of empty
+  /etc/resolv.conf [bnc#473308]
+
+* Thu Nov 19 2009 pbaudis@suse.cz
+- Keep .symtab and .strtab for all glibc-related .so libraries [FATE#307090]
+  [bnc#545721]
+- [ppc,ppc64] Enable optimized builds for power7; no separate power4, power5
+  builds are generated anymore, instead default glibc is built for power4
+  at least, tuned for power5 execution [FATE#307021]
+- Large clean-up of the specfile
+- Add delimiter in front of external additions to locale/gconv lists
+
+* Sat Nov 14 2009 pbaudis@suse.cz
+- Add 623 and 664 to /etc/bindresvport.blacklist to fix problems with
+  port conflict on some IPMI network cards [bnc#513961]
+
+* Mon Nov 09 2009 pbaudis@suse.cz
+- Allow external additions to /usr/share/locale/locale.alias and
+  /usr/lib/gconv/gconv-modules, required for the SAP-locales package.
+
+* Fri Nov 06 2009 pbaudis@suse.cz
+- Remove AMD-provided strlen(), upstream is faster.
+
+* Thu Nov 05 2009 pbaudis@suse.cz
+- Upgrade to Git HEAD as of 20091105 - glibc-2.11-13f6812ffb5b:
+  * New interfaces: execvpe, pthread_sigqueue, mkstemps, mkstemps64, mkostemps,
+    mkostemps64
+    Implemented by Ulrich Drepper.
+  * Checking version of longjmp added that fails if an uninitialized stack
+    frame would be created.  Implemented by Ulrich Drepper.
+  * STT_GNU_IFUNC is now supported in static executables.
+    Implemented by H.J. Lu.
+  * STT_GNU_IFUNC implemented for PPC by Alan Modra.
+  * New optimized string functions for x86-64: strstr, strcasestr, memcmp,
+    strcspn, strpbrk, strspn, strcpy, stpcpy, strncpy, strcmp (SSE2, SSE4.2),
+    strncmp (SSE2, SSE4.2), strchr (SSE4.2), strrchr (SSE4.2).
+    Contributed by H.J. Lu.
+    strlen, rawmemchr, strcmp (SSSE3), strncmp (SSSE3).
+    Implemented by Ulrich Drepper.
+  * New optimized string functions for x86: strlen, strcspn, strspn, strpbrk,
+    strstr, strcasestr.
+    Contributed by H.J. Lu.
+  * Support for fma instruction in AVX on x86-64.
+    Implemented by H.J. Lu and Ulrich Drepper.
+  * AVX support in x86-64 auditing support in ld.so.
+    Implemented by H.J. Lu.
+  * STB_GNU_UNIQUE support added.
+    Implemented by Ulrich Drepper.
+  * Implement second fallback mode for optimized DNS lookup for even more
+    broken environments.  If two requests from the same port are not
+    handled correctly close the socket and open a new one before sending
+    the second request.  The 'single-request-reopen' option in /etc/resolv.conf
+    can be used to select this mode right away, instead of rediscovering the
+    necessity is every process again.
+    Implemented by Ulrich Drepper.
+  * New resolver flag RES_USE_DNSSEC to enable use of verified lookup.
+    Implemented by Adam Tkac.
+  * Optimized iconv conversions for S390x.
+    Implemented by Andreas Krebbel.
+  * Using condvars with PI mutexes is now more efficient due to kernel
+    support for requeueing to PI futexes.  NPTL support added for x86-64.
+    Implemented by Ulrich Drepper.
+  * New locales: ps_AF, my_MM
+- Retired patches:
+  glibc-2.11-timer-delete-race.diff
+  glibc-utmp-timeout-raise.diff
+  glibc-nscd-assert.diff
+  glibc-2.10-mcheck-free-race.diff
+  glibc-nscd-prune-ret.diff
+- Made ifunc compile on IA64 using patch by H.J.Lu
+- Fixed compilation on PPC Cell
+- Lowered utmp locking timeout from 30s to 10s to be compatible
+  with upstream
+
+* Thu Nov 05 2009 pbaudis@suse.cz
+- Merge openSUSE:Factory (pre-11.2) and SLE11 codebase:
+  * Most of SLE11SP1 glibc is based on 11.2 glibc; all SLE11 local
+    glibc changes that were dropped are superseded by new upstream
+    release included now
+  * The timer delete patch is taken from SLE11
+  * ARM support is removed c.f. 11.2
+  * SLE11SP1 nscd package does not provide AppArmor profile c.f. 11.2
+
+* Sat Sep 19 2009 pbaudis@suse.cz
+- Update to glibc-2.10.1-44dbdf3777 of glibc/pb-stable.git glibc-2.10-branch
+  (Still the same source is used for glibc-ports.) - random minor fixes
+
+* Mon Sep 14 2009 pbaudis@suse.cz
+- Fix exception behaviour of various libm functions by AMD optimized
+  for x86_64 [bnc#487576]
+
+* Mon Sep 14 2009 pbaudis@suse.cz
+- define _filter_GLIBC_PRIVATE so that our glibc is not marked to
+  provide these symbols [bnc#468748]
+
+* Tue Sep 08 2009 pbaudis@suse.cz
+- Fix timer_delete() race condition [bnc#537351]
+
+* Tue Sep 08 2009 pbaudis@suse.cz
+- Blowfish: Enable BF_SCALE even on x86_64
+
+* Sat Sep 05 2009 pbaudis@suse.cz
+- Radically trim down the Blowfish support patch - keeps only crypt_blowfish
+  from the original OWL patch, but does the rest within the current glibc
+  crypt infrastructure [bnc#529495]
+
+* Wed Aug 26 2009 mls@suse.de
+- make patch0 usage consistent
+
+* Tue Aug 25 2009 pbaudis@suse.cz
+- Fix nscd handling of zero negative timeout for some databases
+  [bnc#523154,bnc#523170]
+- Raise utmp locking timeout from 1s to 30s to ensure logins get recorded
+  even on heavily loaded systems [bnc#486631]
+- Fix invalid pointer handling in some nscd assertions and the code to send
+  data to the client [bnc#513617]
+
+* Thu Aug 20 2009 pbaudis@suse.cz
+- Update to glibc-2.10.1-aa152ec6ad of release/2.10/master branch
+  (Still the same source is used for glibc-ports.) - random minor fixes
+
+* Thu Jul 16 2009 pbaudis@suse.cz
+- Update to glibc-2.10.1-4253a1e0b2 of glibc/pb-stable.git glibc-2.10-branch
+  (Still the same source is used for glibc-ports.) - random minor fixes
+- Fix compilation with 2.6.30 kernel headers on IA64
+
+* Wed Jun 17 2009 pbaudis@suse.cz
+- Fix a dead-lock introduced by the bnc#509398 fix
+- Update to glibc-2.10.1-d0f6ed789f of glibc/pb-stable.git glibc-2.10-branch
+  (Still the same source is used for glibc-ports.) - random minor fixes
+
+* Fri Jun 12 2009 pbaudis@suse.cz
+- Update to glibc-2.10.1-9cf557216c of glibc/pb-stable.git glibc-2.10-branch
+  (Still the same source is used for glibc-ports.)
+  * Fix 100% CPU usage by Java apps because of bad futex calls [bnc#509096]
+
+* Mon Jun 08 2009 pbaudis@suse.cz
+- Fix race condition in the mcheck free() hook [bnc#509398]
+
+* Thu Jun 04 2009 pbaudis@suse.cz
+- Remove temporary revert of a namespace leakage cleanup in glibc-2.8
+
+* Fri May 22 2009 pbaudis@suse.cz
+- Update to glibc-2.10.1-e38af591a8 of glibc/pb-stable.git glibc-2.10-branch
+  maintained by me at repo.or.cz; contains backports of various bugfixes.
+  (Still the same source is used for glibc-ports.)
+- Stop using separate tarball for nptl.
+
+* Fri May 15 2009 pbaudis@suse.cz
+- Add support for multiple group records for a single group
+  when using nss_compat (configurable in /etc/default/nss) [bnc#480991]
+
+* Sun May 10 2009 pbaudis@suse.cz
+- Update to 2009051021, glibc-2.10.1:
+  * Add missing cacheinfo entry for a recent Intel processor
+  * Fix ABI issue with the gshadow interface
+
+* Sun May 10 2009 pbaudis@suse.cz
+- Upgrade to CVS HEAD as of 2009051010 - glibc-2.10:
+  * DNS IPv4-IPv6 lookup changed back to parallel version; with broken DNS
+    servers (the case e.g. for many ADSL users), you may experience long
+    timeouts, once for each process (but eventually your request will be
+    resolved) - the solution is to run nscd (default on SUSE) and/or
+    put 'options single-request' in /etc/resolv.conf.
+  * New interfaces: preadv, preadv64, pwritev, pwritev64, malloc_info
+    Implemented by Ulrich Drepper.
+  * New Linux interfaces: accept4, fallocate, fallocate64.
+    Implemented by Ulrich Drepper.
+  * Correct declarations of string function when used in C++ code.  This
+    could lead to compile errors for invalid C++ code.
+  * XPG7/POSIX 2008 compilation environment.  Many GNU-specific functions are
+    now in POSIX.
+  * New POSIX 2008 interface: psiginfo
+    Implemented by Ulrich Drepper.
+  * New ISO C++1x interfaces: quick_exit, at_quick_exit
+    Implemented by Ulrich Drepper.
+  * Support for selecting between multiple function definitions at runtime
+    using STT_GNU_IFUNC symbols.  Implemented by Ulrich Drepper.
+  * The libcrypt library can now use the hash function implementations in
+    NSS.  Implemented by Ulrich Drepper.
+  * The malloc implementation can be compiled to be less memory efficient
+    but higher performing in multi-threaded programs.
+    Implemented by Ulrich Drepper.
+  * New locales: nan_TW@latin, ks_IN
+  * Faster strlen, strchr, strchrnul, strrchr, memchr, and rawmemchr for x86-64.
+    Implemented by Ulrich Drepper.
+  * Extended printf hook support.  It is possible to use user-defined types
+    and extend existing format specifiers.
+    Implemented by Ulrich Drepper.
+  * Handling for group shadow files has been added.
+    Implemented by Ulrich Drepper.
+- Retired:
+  glibc-2.10-dns-fixpack.diff
+  glibc-2.10-dns-no-gethostbyname4.diff
+  glibc-2.10-locale-tuesday.diff
+  glibc-2.10-nscd-gc-dataofs.diff
+  glibc-2.10-nscd-prunerace.diff
+  glibc-2.10-ppc32-setcontext-fp.diff
+  glibc-2.10-unsetenv.diff
+  glibc-2.4.90-mdns-resolver.diff
+  glibc-getgroups-fortify.diff
+  glibc-2.10-nscd-meminflight.diff
+  getaddrinfo-ipv6-sanity.diff
+  glibc-2.10-nis-hosts.diff
+- Several other modified
+
+* Mon Mar 23 2009 rguenther@suse.de
+- Add missing libc_hidden_builtin_def (memcmp) to
+  glibc-2.3.3-amd64-string.diff.  Fixes build with GCC 4.4.
+
+* Wed Feb 18 2009 adrian@suse.de
+- Build i686 glibc src rpm as nosrc to get both versions on the
+  media [bnc#474338]
+
+* Mon Feb 09 2009 pbaudis@suse.cz
+- Fix defaulting to localhost in case of no nameserver entries
+  in /etc/resolv.conf [bnc#473308]
+
+* Wed Jan 21 2009 pbaudis@suse.cz
+- Re-enable the DNS fixpack, add real fix for bnc#441947
+- nscd: Fix gc he_data overflow and turn of alloca usage [bnc#387202]
+- Normalize the patch queue
+- Increate CPU_SETSIZE from 1024 to 4096 - for large SGI machines
+  and compatibility with SLE10SP2 [bnc#464667]
+
+* Fri Jan 16 2009 pbaudis@suse.cz
+- Disable the DNS fixpack from CVS, breaks nscd resolving [bnc#441947]
+
+* Fri Jan 09 2009 pbaudis@suse.cz
+- Fix unsetenv() crashing after clearenv()
+- Backport various DNS-related fixes from CVS
+- Disable parallel A-AAAA queries - revert to the glibc-2.9 behaviour
+  of sending the queries sequentially [bnc#442572]
+- Fix fp register protection on power6 setcontext() [bnc#464738]
+
+* Mon Dec 08 2008 pbaudis@suse.cz
+- Fix crash when parsing NIS hosts file [bnc#448702]
+
+* Thu Dec 04 2008 pbaudis@suse.cz
+- Fix nscd gc-cacheadd and prune-invalidate races [bnc#446233]
+- Remove obsolete and disabled nscd patch
+- Fix /etc/bindresvport.blacklist parsing [bnc#439146]
+- Fix en_GB and csb_PL locales having weeks start on Tuesdays [bnc#449186]
+
+* Sun Nov 23 2008 pbaudis@suse.cz
+- clean up patch filenames
+
+* Fri Nov 21 2008 olh@suse.de
+- fix check-build.sh to actually allow building on ppc* again
+
+* Fri Nov 21 2008 olh@suse.de
+- do not run compiled binaries with cputuned libraries [bnc#445911]
+  the buildhost only generates them, but must not execute them
+
+* Mon Nov 17 2008 pbaudis@suse.cz
+- Update to glibc-2.9 final
+
+* Thu Nov 06 2008 jjolly@suse.de
+- Added patch to fix s390x 64bit stack frame problem
+
+* Fri Oct 31 2008 matz@suse.de
+- Fix atomics on s390/s390x, leading to failures in pthread mutexes.
+
+* Tue Oct 28 2008 schwab@suse.de
+- Restore alignment patch.
+
+* Tue Oct 28 2008 olh@suse.de
+- symlink power5/power5+ to power4 on ppc32
+
+* Thu Oct 23 2008 ro@suse.de
+- only do obsoletes for XXbit packages on ppc, not on x86
+
+* Thu Oct 23 2008 matz@suse.de
+- Deactivate unwind tables for initfini.c.
+
+* Thu Oct 23 2008 olh@suse.de
+- obsolete glibc{,-devel,-locale,-profile} -XXbit packages [bnc#437293]
+- update last change to handle empty rpmspec defines
+
+* Tue Oct 21 2008 olh@suse.de
+- update glibc_post_upgrade to handle power7 and ppc-cell-be
+- remove libs unconditionally on powerpc to handle libs in
+  subdirectories for which we do not ship optimized versions [bnc#437209]
+
+* Thu Oct 16 2008 olh@suse.de
+- enable cpu-tuned libraries for power4, power6 and ppc-cell-be
+  on ppc32 [fate#304000,bnc#408808]
+
+* Mon Oct 13 2008 matz@suse.de
+- Update to trunk from 20081013, no longer export paccept,
+  obsoletes some patches (lowlevellock and res_send).
+  Fix overflow in nscd patch.
+
+* Sun Oct 12 2008 dmueller@suse.de
+- also strip .comment.SUSE.OPTs from the static libs
+- add missing-include-build-fix.diff
+
+* Tue Oct 07 2008 schwab@suse.de
+- Fix alignment in resolver.
+
+* Tue Sep 30 2008 olh@suse.de
+- symlink tuned libs because rpmlint is unable to handle hardlinks
+
+* Mon Sep 29 2008 olh@suse.de
+- enable cpu-tuned libraries for power6 and ppc-cell-be [fate#304000,bnc#408808]
+- remove -mtune G4/RS64 from CFLAGS on ppc/ppc64
+
+* Thu Sep 18 2008 rguenther@suse.de
+- Change .comment.SuSE.OPTs to .comment.SUSE.OPTs.  Also strip from
+  crti.o and crtn.o.
+- Adjust getgroups fortify check.  [bnc#426958]
+
+* Thu Sep 18 2008 schwab@suse.de
+- Fix alignment in resolver.
+
+* Mon Sep 15 2008 adrian@suse.de
+- do not run glibc_post_upgrade in XEN builds
+
+* Sat Sep 13 2008 rguenther@suse.de
+- strip .note.gnu.build-id from crt1.o.
+
+* Sat Sep 13 2008 dmueller@suse.de
+- only strip comment from crt1.o
+
+* Fri Sep 12 2008 mls@suse.de
+- block baselibs generation for i586 (use i686 instead)
+
+* Fri Sep 12 2008 dmueller@suse.de
+- strip suse opts comments from crt.o (fate #300498)
+
+* Mon Sep 08 2008 rguenther@suse.de
+- Add a patch to fix wrong asm constraints in the i386 lowlevel
+  futex lock implementation.
+
+* Thu Sep 04 2008 matz@suse.de
+- Update to current trunk snapshot (2008-09-04), makes s390 build.
+
+* Wed Aug 27 2008 matz@suse.de
+- Add a patch to use RTLD_DEEPBIND to load nss modules.  [bnc #157078]
+
+* Mon Aug 25 2008 matz@suse.de
+- Update to current trunk snapshot (2008-08-25).
+
+* Fri Aug 22 2008 prusnak@suse.cz
+- enabled SELinux support [Fate#303662]
+
+* Fri Aug 15 2008 aj@suse.de
+- Fix nscd init script for new checks.
+- package empty ld.so.cache.
+
+* Fri Jul 25 2008 aj@suse.de
+- Add directory /var/cache/ldconfig to filelist.
+
+* Wed Jun 25 2008 pbaudis@suse.cz
+- Fix strptime() %EY era support [bnc#355887]
+
+* Wed Jun 25 2008 rguenther@suse.de
+- Add patch to fix unwinding through clone for x86_64 and i386.
+  [bnc#290807, bnc#403464]
+
+* Fri May 30 2008 schwab@suse.de
+- Fix ppc atomic ops.
+
+* Fri Apr 25 2008 pbaudis@suse.cz
+- Update to glibc-2.8 CVS branch as of 2008042513 (post-glibc-2.8):
+  * Faster sqrt and sqrtf implemention for some PPC variants.
+
+* Thu Apr 10 2008 pbaudis@suse.cz
+- Build fix after the revert
+
+* Thu Apr 10 2008 pbaudis@suse.cz
+- Temporarily revert a namespace leakage cleanup in glibc-2.8 since
+  it causes a lot of build failures
+
+* Thu Apr 10 2008 pbaudis@suse.cz
+- Update to CVS HEAD as of 2008041002 (almost glibc-2.8):
+  * New locales: bo_CN, bo_IN.
+  * New encoding: HP-ROMAN9, HP-GREEK8, HP-THAI8, HP-TURKISH8.
+  * Sorting rules for some Indian languages (Devanagari and Gujarati).
+    Implemented by Pravin Satpute.
+  * IPV6 addresses in /etc/resolv.conf can now have a scope ID
+  * nscd caches now all timeouts for DNS entries
+    Implemented by Ulrich Drepper.
+  * nscd is more efficient and wakes up less often.
+    Implemented by Ulrich Drepper.
+  * More checking functions: asprintf, dprintf, obstack_printf, vasprintf,
+    vdprintf, and obstack_vprintf.
+    Implemented by Jakub Jelinek.
+  * Faster memset for x86-64.
+    Implemented by Harsha Jagasia and H.J. Lu.
+  * Faster memcpy on x86.
+    Implemented by Ulrich Drepper.
+  * ARG_MAX is not anymore constant on Linux.  Use sysconf(_SC_ARG_MAX).
+    Implemented by Ulrich Drepper.
+- memset() implementation from AMD replaced by new upstream
+  implementation
+- Enable stackguard randomization
+
+* Thu Apr 10 2008 ro@suse.de
+- added baselibs.conf file to build xxbit packages
+  for multilib support
+
+* Thu Mar 13 2008 dmueller@suse.de
+- don't try to use ipv6 in getaddrinfo() unconditionally (bnc#361697)
+
+* Sat Jan 26 2008 aj@suse.de
+- Add fixes from 2.8 branch for string.h and headers.  The string.h
+  changes should fix sysvinit compilation.
+- Fix some rpmlint warnings:
+  * Add versioned provides and obsoletes.
+  * Use %check section.
+
+* Fri Jan 18 2008 schwab@suse.de
+- Fix use of fnstsw.
+
+* Wed Nov 21 2007 pbaudis@suse.cz
+- Update to CVS branch glibc_2.7 as of today
+- Remove the ::1 hack again
+- Fix nscd race condition between mempool_alloc() and gc() [#288910]
+- Fix nscd stack overflow in gc() when the number of cache entries
+  gets too large [#288910]
+- Fix sunrpc udp client [#257745]
+- Fix initgroups() crash in nss_compat [#310544]
+
+* Thu Sep 27 2007 matz@suse.de
+- Remove broken x86_64 bcopy function.  [#328486]
+
+* Sun Sep 16 2007 aj@suse.de
+- Install gai.conf on all archs.
+
+* Thu Sep 13 2007 pbaudis@suse.cz
+- Install the default gai.conf to /etc instead of docdir
+- Do not return ::1 /etc/hosts records for 127.0.0.1 queries [#288879]
+
+* Wed Sep 05 2007 pbaudis@suse.cz
+- Fix pthread_mutex_unlock() internal lock handling for incorrectly
+  written applications
+- Fix nscd assertion failure when opening persistent db failed [#288910]
+
+* Mon Sep 03 2007 mls@suse.de
+- fix typos in mdns patch [#206247], [#256690]
+
+* Fri Aug 31 2007 aj@suse.de
+- Add /usr/share/locale-bundle/ as fallback directory for usage
+  with bundle-lang packages (see bug #302270).
+
+* Tue Aug 21 2007 pbaudis@suse.cz
+- Reintroduce errorneously omitted AMD64 optimizations
+  (and fix them to compile again)
+
+* Thu Aug 16 2007 aj@suse.de
+- Fix static linking (#233835).
+- Silence rpmlint for profile package.
+- Add Short-Description to nscd init script.
+
+* Mon Aug 13 2007 aj@suse.de
+- Backport:
+  * Update kernel-features.h.
+  * Fix sched_getcpu error path on x86-64.
+  * Use upstreamed version of ldconfig cache speed ups.
+
+* Fri Aug 03 2007 pbaudis@suse.cz
+- Remove the dynamic linker support for direct bindings (-Bdirect);
+  according to Michael Meeks, the performance improvement is too small
+- Split timezone package to a separate physical package
+- Update glibc to version 2.6.1
+
+* Fri Jul 27 2007 aj@suse.de
+- Use fdupes to reduce timezone data size.
+
+* Fri Jul 13 2007 schwab@suse.de
+- Update to head of glibc-2.6 branch.
+- Fix update on ppc.
+
+* Thu Jun 28 2007 matz@suse.de
+- Add a provide for "rtld(GNU_HASH)".
+
+* Sun Jun 17 2007 schwab@suse.de
+- Fix section selection in crt objects.
+
+* Thu Jun 07 2007 pbaudis@suse.cz
+- Backport fix for crashing printf() of some invalid ldouble values
+
+* Wed May 30 2007 pbaudis@suse.cz
+- Added few fixes from 2.6 CVS before 2.6.1 gets released
+
+* Fri May 18 2007 pbaudis@suse.cz
+- Update glibc to version 2.6
+- Update tzdata to version 2007f
+
+* Fri May 04 2007 schwab@suse.de
+- Update build checks.
+
+* Fri Apr 20 2007 dmueller@suse.de
+- only keep symtab for libpthread*
+
+* Thu Apr 19 2007 pbaudis@suse.cz
+- Fix strtod() exponent limit calculations [#230909]
+- Fix random nscd crashes under very heavy passwd/group queries
+  load [#192391]
+- Add some enums from CVS to sys/personality.h [#253710]
+- Fix pthread_atfork()-induced hangs in threaded programs [#256237]
+- Fix llrintl() on ppc64 [#241183]
+- Fix makecontext() segfault [#249780]
+- Fix potential dladdr() breakage [#241464]
+- Fix some races in client programs with nscd garbage collection [#252138]
+
+* Fri Mar 30 2007 pbaudis@suse.cz
+- Update localtime during timezone update [#239888]
+
+* Sun Mar 25 2007 olh@suse.de
+- temporary disable powerpc cputuned libs to reduce turnaround time
+
+* Fri Feb 09 2007 pbaudis@suse.cz
+- Update to the latest upstream timezone data [#231833]
+
+* Fri Feb 02 2007 schwab@suse.de
+- Remove -ffortify.
+
+* Thu Feb 01 2007 schwab@suse.de
+- Remove -fstack-protector.
+
+* Mon Jan 29 2007 sbrabec@suse.cz
+- Removed references to /opt/gnome.
+
+* Thu Jan 25 2007 olh@suse.de
+- link power4 to ppc970, link power6 to power6x
+- Update the powerpc cpu-tuned environment to v0.05
+
+* Mon Jan 22 2007 schwab@suse.de
+- Update ppc build check.
+
+* Fri Nov 24 2006 pbaudis@suse.cz
+- Fix for Brazilian and Wester Australia timezone DSTs [#213375,#223196]
+
+* Thu Nov 16 2006 pbaudis@suse.cz
+- Disable power6 optimization for 10.2, not all pieces are there
+  [#219962]
+
+* Wed Oct 25 2006 pbaudis@suse.cz
+- Change ld.so madvise() call to posix_fadvise()
+- Fix mallopt(M_MXFAST,0) behaviour [#198760]
+- Update the powerpc cpu-tuned environment to v0.04 [#215117]
+
+* Sun Oct 22 2006 pbaudis@suse.cz
+- Update the powerpc cpu-tuned environment to v0.03 [#212549]
+- Improve glibc powerpc optimization [#212548,#212580,#214282]
+
+* Tue Oct 17 2006 mls@suse.de
+- add ldconfig-old-cache patch to speed up ldconfig
+
+* Sat Oct 14 2006 olh@suse.de
+- dont use uninitialized (and wrong) variable in glibc-2.4.90-bdirect.diff
+  [#212470]
+
+* Thu Oct 12 2006 pbaudis@suse.cz
+- Update to the latest 2.5 CVS
+- More friendly -Bdirect behaviour in case of missing libraries
+- Fix 2.4.90-nscd patch wrt. new gcc
+
+* Mon Oct 02 2006 aj@suse.de
+- Fix warnings in testsuite (patch from CVS).
+
+* Fri Sep 29 2006 pbaudis@suse.cz
+- Update to 2.5 CVS - official release (only minimal changes in CVS
+  since the last update)
+- Fix a thinko in the -Bdirect patch
+
+* Fri Sep 29 2006 dmueller@suse.de
+- fix devel requires
+
+* Fri Sep 29 2006 pbaudis@suse.cz
+- Make the dynamic linker support direct bindings (Michael Meeks'
+  Solaris-like -Bdirect with minor changes by me)
+- Split the kernel headers to a new package (linux-kernel-headers)
+
+* Wed Sep 27 2006 schwab@suse.de
+- Fix broken assertion [#208189].
+
+* Tue Sep 26 2006 pbaudis@suse.cz
+- Fix mistake when removing some patches
+
+* Mon Sep 25 2006 pbaudis@suse.cz
+- Update to current CVS
+
+* Sat Sep 23 2006 pbaudis@suse.cz
+- Fix 64bit-cleanliness gcc warnings
+
+* Thu Sep 21 2006 pbaudis@suse.cz
+- Add /usr/lib{,64}/Xaw3d to /etc/ld.so.conf (by schwab@suse.de,
+  from original STABLE) [#205169]
+- Fix chown() instead of lchown() called in fchownat() emulation
+  [#201751]
+- Fix glob() overflowing stack when producing massive number of
+  matches [#190458]
+- Update to current CVS
+
+* Wed Sep 20 2006 pbaudis@suse.cz
+- Fix cut'n'paste error in a last-minute change
+
+* Wed Sep 20 2006 pbaudis@suse.cz
+- Update to current CVS
+- Fix powerpc-cpu tarball extension
+- Move crypt-blowfish to a patch so that quilt works on the tree
+
+* Sat Sep 02 2006 schwab@suse.de
+- Use asm-powerpc for ppc and ppc64.
+- Fix chroot check in glibc_post_upgrade.
+
+* Sun Aug 27 2006 pbaudis@suse.cz
+- Update to current CVS, should fix false positive heap overflow
+  trigger from malloc() causing gcc to hang [#201724]
+
+* Wed Aug 23 2006 pbaudis@suse.cz
+- Update the powerpc cpu-tuned environment to v0.02 [#199274]
+- Update to current CVS
+- Drop pthread_mutexattr_getprioceiling() out of range fix
+
+* Thu Aug 10 2006 pbaudis@suse.cz
+Ported from STABLE:
+- Remove libc5 reference from /etc/ld.so.conf, shlibs5 is no longer
+  supported [#181947]
+- Fix name of a dummy ia64 header from offsets.h to asm-offsets.h
+  [#191394]
+
+* Sun Jul 30 2006 pbaudis@suse.cz
+- Update to current CVS snapshot (highlight: support for .gnu.hash
+  fast linking support)
+
+* Wed Jul 12 2006 pbaudis@suse.cz
+- pthread_mutexattr_getprioceiling() was returning prioceiling out
+  of range [#182782]
+
+* Wed Jul 12 2006 pbaudis@suse.cz
+- Fix the HTML documentation missing an index [#190585]
+

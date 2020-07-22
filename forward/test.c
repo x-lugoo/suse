@@ -129,3 +129,5 @@ crontab -e
 
           http://129.204.152.32/docker-18.09.1_ce-98.34.2.tar.gz
           
+                crash> ps -G | sed 's/>//g' | sort -k 8,8 -n | awk '$8 ~ /[0-9]/{ $8 = $8/1024" MB"; print }' | tail -20
+

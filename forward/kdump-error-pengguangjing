@@ -1,0 +1,42 @@
+diff -ur ./105-bad/initrd-work/ ./105-good/105-g-good/ 
+
+--- ./105-bad/initrd-work/boot//91-kdump.sh	2021-07-12 20:44:01.033561851 +0800
++++ ./105-good/105-g-good/boot//91-kdump.sh	2021-07-12 17:47:25.834626698 +0800
+@@ -49,7 +49,6 @@
+         test -f $FADUMP_RELEASE_MEM && echo 1 > $FADUMP_RELEASE_MEM
+     elif [ $KDUMP_IMMEDIATE_REBOOT = "yes" \
+             -o "$KDUMP_IMMEDIATE_REBOOT" = "YES" ] ; then
+-        umount -a
+         reboot -f
+     else
+         echo
+@@ -134,7 +133,7 @@
+ 
+ . /etc/sysconfig/kdump
+ 
+-ROOTDIR=/kdump
++ROOTDIR=/root
+ FADUMP_ENABLED=/sys/kernel/fadump_enabled
+ FADUMP_RELEASE_MEM=/sys/kernel/fadump_release_mem
+ 
+@@ -147,7 +146,7 @@
+ read backup_core_pattern < /proc/sys/kernel/core_pattern
+ backup_ulimit=$(ulimit -c)
+ 
+-echo "/root/tmp/core.kdumptool" > /proc/sys/kernel/core_pattern
++echo "$ROOTDIR/tmp/core.kdumptool" > /proc/sys/kernel/core_pattern
+ ulimit -c unlimited
+ 
+ #
+@@ -164,11 +163,6 @@
+     if ! continue_error $?; then
+         return
+     fi
+-
+-    wait_for_dumpdev "$debugdev" debug
+-    if ! continue_error $?; then
+-        return
+-    fi
+ 
+     wait_for_dumpdev "$dumpdev" dump
+     if ! continue_error $?; then

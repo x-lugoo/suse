@@ -5,3 +5,7 @@ https://en.wikipedia.org/wiki/Ext4
 Unlimited number of subdirectories
     ext4 does not limit the number of subdirectories in a single directory, except by the inherent size limit of the directory itself. (In ext3 a directory can have at most 32,000 subdirectories.)[16][obsolete source] To allow for larger directories and continued performance, ext4 in Linux 2.6.23 and later turns on HTree indices (a specialized version of a B-tree) by default, which allows directories up to approximately 10–12 million entries to be stored in the 2-level HTree index and 2 GB directory size limit for 4 KiB block size, depending on the filename length. In Linux 4.12 and later the large_dir feature enabled a 3-level HTree and directory sizes over 2 GB, allowing approximately 6 billion entries in a single directory.
 
+https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/art-ha-quick-nfs.html
+
+https://documentation.suse.com/zh-cn/sle-ha/15-SP3/single-html/SLE-HA-nfs-storage/#article-nfs-storage
+

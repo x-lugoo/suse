@@ -9,3 +9,5 @@ https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/art-ha-quick-nfs.ht
 
 https://documentation.suse.com/zh-cn/sle-ha/15-SP3/single-html/SLE-HA-nfs-storage/#article-nfs-storage
 
+https://documentation.suse.com/zh-cn/sle-ha/15-SP3/single-html/SLE-HA-nfs-storage/#article-nfs-storage
+

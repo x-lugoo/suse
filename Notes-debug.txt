@@ -28,3 +28,16 @@ earlyprintk=serial,ttyS0,115200 loglevel=8 initcall_debug
 886     {
 
 
+vg恢复步骤：(前提是首先remove去掉所有的lvm)
+1.根据/etc/lvm/backup中的vg0 信息恢复
+2.首先重新一个个创造pv, 根据vg0中的对应pv uuid:
+pvcreate /dev/sda -u (uuid) --restorefile /etc/lvm/backup/vg0
+pvcreate /dev/sdb -u (uuid)—restorefile /etc/lvm/backup/vg0
+3.vgcfgrestore vg0 (自动寻找/etc/lvm/backup/中的vg
+4.lvs查看lv状态，此时应该没有a激活状态，而且没有/dev/vg0/lv...信息）
+5.激活vg vgchange -ay vg0 (去激活是 vgchange -an vg0)
+
+
+
+
+

@@ -11,3 +11,20 @@ https://documentation.suse.com/zh-cn/sle-ha/15-SP3/single-html/SLE-HA-nfs-storag
 
 https://documentation.suse.com/zh-cn/sle-ha/15-SP3/single-html/SLE-HA-nfs-storage/#article-nfs-storage
 
+
+earlyprintk=serial,ttyS0,115200 loglevel=8 initcall_debug 
+
+(gdb) list *kernel_init_freeable+0x1a2      
+0xffffffff8256240a is in kernel_init_freeable (../init/main.c:882).
+877                        __stop___param - __start___param,
+878                        level, level,
+879                        NULL, &repair_env_string);
+880
+881             for (fn = initcall_levels[level]; fn < initcall_levels[level+1]; fn++)
+882                     do_one_initcall(*fn);
+883     }
+884
+885     static void __init do_initcalls(void)
+886     {
+
+

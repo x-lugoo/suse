@@ -37,7 +37,7 @@ pvcreate /dev/sdb -u (uuid)—restorefile /etc/lvm/backup/vg0
 4.lvs查看lv状态，此时应该没有a激活状态，而且没有/dev/vg0/lv...信息）
 5.激活vg vgchange -ay vg0 (去激活是 vgchange -an vg0)
 
-
+# /usr/bin/last -xF | egrep "reboot|shutdown|runlevel|system"
 
 
 

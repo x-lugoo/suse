@@ -39,5 +39,5 @@ pvcreate /dev/sdb -u (uuid)—restorefile /etc/lvm/backup/vg0
 
 # /usr/bin/last -xF | egrep "reboot|shutdown|runlevel|system"
 
-
+https://www.suse.com/support/kb/doc/?id=000021152
 

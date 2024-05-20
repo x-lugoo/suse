@@ -44,3 +44,11 @@ https://www.suse.com/support/kb/doc/?id=000021152
 
 What is the meaning of "ext[3/4]_dx_add_entry: Directory index full!"?
 https://access.redhat.com/solutions/29894
+
+latest curl:
+curl-8.0.1-11.86.2.src.rpm	
+curl-8.0.1-11.86.2.x86_64.rpm	
+libcurl4-32bit-8.0.1-11.86.2.x86_64.rpm	
+libcurl4-8.0.1-11.86.2.x86_64.rpm
+
+

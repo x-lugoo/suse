@@ -53,3 +53,5 @@ libcurl4-8.0.1-11.86.2.x86_64.rpm
 
 zcat /proc/config.gz | grep CONFIG_NET_VENDOR_RENESAS
 CONFIG_NET_VENDOR_RENESAS=y
+
+docker-24.0.7_ce-98.106.1.x86_64.rpm

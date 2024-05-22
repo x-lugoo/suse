@@ -55,3 +55,4 @@ zcat /proc/config.gz | grep CONFIG_NET_VENDOR_RENESAS
 CONFIG_NET_VENDOR_RENESAS=y
 
 docker-24.0.7_ce-98.106.1.x86_64.rpm
+https://bugzilla.suse.com/show_bug.cgi?id=1219267

@@ -146,3 +146,6 @@ nfs4_init_uniform_client_string(struct nfs_client *clp)
 }
 
 而对于nfs v4.1  如果设置了nfs4_unique_id，clientid会获取设置的nfs4_unique_id参数
+
+
+ # openssl x509 -in thawte_Primary_Root_CA_-_G2.pem -noout -text

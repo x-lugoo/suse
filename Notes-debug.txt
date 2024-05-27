@@ -149,3 +149,5 @@ nfs4_init_uniform_client_string(struct nfs_client *clp)
 
 
  # openssl x509 -in thawte_Primary_Root_CA_-_G2.pem -noout -text
+
+NFSv4.1 has various improvements relating to state management and opening file.

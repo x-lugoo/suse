@@ -58,3 +58,91 @@ docker-24.0.7_ce-98.106.1.x86_64.rpm
 https://bugzilla.suse.com/show_bug.cgi?id=1219267
 
 NFS4ERR_CLID_INUSE = 10017,
+
+
+
+
+static const struct nfs4_state_recovery_ops nfs40_reboot_recovery_ops = {
+        .owner_flag_bit = NFS_OWNER_RECLAIM_REBOOT,
+        .state_flag_bit = NFS_STATE_RECLAIM_REBOOT,
+        .recover_open   = nfs4_open_reclaim,
+        .recover_lock   = nfs4_lock_reclaim,
+        .establish_clid = nfs4_init_clientid,                 // for 4.0
+        .detect_trunking = nfs40_discover_server_trunking,
+};
+
+#if defined(CONFIG_NFS_V4_1)
+static const struct nfs4_state_recovery_ops nfs41_reboot_recovery_ops = {
+        .owner_flag_bit = NFS_OWNER_RECLAIM_REBOOT,
+        .state_flag_bit = NFS_STATE_RECLAIM_REBOOT,
+        .recover_open   = nfs4_open_reclaim,
+        .recover_lock   = nfs4_lock_reclaim,
+        .establish_clid = nfs41_init_clientid,                            // for  v4.1
+        .reclaim_complete = nfs41_proc_reclaim_complete,
+        .detect_trunking = nfs41_discover_server_trunking,
+};
+
+
+For NFS 4.0:  (sles12sp5 4.12.14-122.186)
+ nfs4_proc_setclientid
+        if (test_bit(NFS_CS_MIGRATION, &clp->cl_flags))
+                status = nfs4_init_uniform_client_string(clp);
+        else
+                status = nfs4_init_nonuniform_client_string(clp);
+
+linux-miqc:/sys/module/nfs/parameters # echo 'test-nfs'> ./nfs4_unique_id 
+
+mount -t nfs -o vers=4.0 192.168.2.77:/issues/ /issues/        （ 未上migration选项）
+dmesg | grep "setclientid"
+[345994.085989] NFS call  setclientid auth=UNIX, 'Linux NFSv4.0 192.168.2.25/192.168.2.77 tcp'
+
+
+ mount -t nfs -o vers=4.0,migration  192.168.2.77:/issues/ /issues/     (加上migration选项）
+#dmesg | grep "setclientid"
+[346041.242784] NFS call  setclientid auth=UNIX, 'Linux NFSv4.0 test-nfs
+
+
+在使用nfs4.0挂载选项有migration，clientid才会包含nfs4_unique_id  参数
+
+
+
+For NFS 4.1:  (sles12sp5 4.12.14-122.186)
+
+nfs41_init_clientid()
+       nfs4_init_uniform_client_string()
+
+static int
+nfs4_init_uniform_client_string(struct nfs_client *clp)
+{
+        size_t len; 
+        char *str;
+
+        if (clp->cl_owner_id != NULL)
+                return 0;
+
+        if (nfs4_client_id_uniquifier[0] != '\0')
+                return nfs4_init_uniquifier_client_string(clp);
+
+        len = 10 + 10 + 1 + 10 + 1 +
+                strlen(clp->cl_rpcclient->cl_nodename) + 1; 
+
+        if (len > NFS4_OPAQUE_LIMIT + 1) 
+                return -EINVAL;
+
+        /*   
+         * Since this string is allocated at mount time, and held until the
+         * nfs_client is destroyed, we can use GFP_KERNEL here w/o worrying
+         * about a memory-reclaim deadlock.
+         */
+        str = kmalloc(len, GFP_KERNEL);
+        if (!str)
+                return -ENOMEM;
+
+        scnprintf(str, len, "Linux NFSv%u.%u %s",
+                        clp->rpc_ops->version, clp->cl_minorversion,
+                        clp->cl_rpcclient->cl_nodename);
+        clp->cl_owner_id = str; 
+        return 0;
+}
+
+而对于nfs v4.1  如果设置了nfs4_unique_id，clientid会获取设置的nfs4_unique_id参数

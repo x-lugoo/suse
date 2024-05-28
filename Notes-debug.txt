@@ -180,4 +180,7 @@ I would also recommend they test with specific DCs such as the one listed in the
 ad_use_ldads = true alongside auth_provider = ad in the sssd.conf file
 
 https://documentation.suse.com/sles/12-SP5/html/SLES-all/cha-security-ldap.html
+
+ldaps:
+https://www.suse.com/support/kb/doc/?id=000019003
 ---------

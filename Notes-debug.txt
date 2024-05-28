@@ -183,4 +183,6 @@ https://documentation.suse.com/sles/12-SP5/html/SLES-all/cha-security-ldap.html
 
 ldaps:
 https://www.suse.com/support/kb/doc/?id=000019003
+
+systemctl status  systemd-timedated.service
 ---------

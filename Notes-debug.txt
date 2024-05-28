@@ -189,4 +189,7 @@ systemctl status  systemd-timedated.service
 https://www.suse.com/support/kb/doc/?id=000019003
 How to verify openssl certification chain
 
+https://www.suse.com/support/kb/doc/?id=000021102
+NTP Sync Issue
+
 ---------

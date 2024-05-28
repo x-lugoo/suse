@@ -151,3 +151,33 @@ nfs4_init_uniform_client_string(struct nfs_client *clp)
  # openssl x509 -in thawte_Primary_Root_CA_-_G2.pem -noout -text
 
 NFSv4.1 has various improvements relating to state management and opening file.
+
+
+--------
+- [x] ldaps 636
+ldap 389端口，服务端禁用之后,只走ldaps，客户端连接不上ldap服务了
+
+https://www.suse.com/support/kb/doc/?id=000018204
+LDAPS authentication from SLES not working, but LDAP does.
+
+https://www.suse.com/support/kb/doc/?id=000017935
+Troubleshooting LDAP Connections
+
+case 01326177
+Upon further investigation, it appears you are indeed correct. Including ad_use_ldads = true alongside auth_provider = ad in the sssd.conf file should be valid. This configuration directs the system to use port 636 for LDAPS. To further troubleshoot, could you please provide additional information?
+1. Can you successfully connect using standard LDAP (without LDAPS)?
+2. Are there any specific error messages appearing when attempting to use LDAPS?
+3. What exactly occurs when you try to connect via LDAPS?
+4. Which specific Windows-issued certificate are you using for this setup?
+
+# openssl s_client -connect corporate.ingrammicro.com:636 -CAfile /etc/openldap/cacerts/INGRAMMICROCA11.CORPORATE.INGRAMMICRO.COM.pem
+
+I would also recommend they test with specific DCs such as the one listed in the description:
+
+# openssl s_client -connect DEFRIZWADC1054.corporate.ingrammicro.com:636 -CAfile /etc/openldap/cacerts/INGRAMMICROCA11.CORPORATE.INGRAMMICRO.COM.pem
+
+
+ad_use_ldads = true alongside auth_provider = ad in the sssd.conf file
+
+https://documentation.suse.com/sles/12-SP5/html/SLES-all/cha-security-ldap.html
+---------

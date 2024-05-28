@@ -191,5 +191,34 @@ How to verify openssl certification chain
 
 https://www.suse.com/support/kb/doc/?id=000021102
 NTP Sync Issue
+执行ntptime:
 
+ntptime
+
+
+        r = bus_map_all_properties(bus,
+                                   "org.freedesktop.timedate1",
+                                   "/org/freedesktop/timedate1",
+                                   map,
+                                   &info);
+        if (r < 0)
+                return log_error_errno(r, "Failed to query server: %m");
+
+# auditctl -a always,exit -F arch=b64 -S adjtimex -S clock_adjtime -k adj
+# ausearch -i  -k adj
+
+
+连续两次ntptime查看 offset  是否有变化，如果咩有，排查上级时钟源
+排查上级时钟源不稳
 ---------
+[EAR - NOT FOR USA Citizens] the nfs client gets stuck - ATAE
+I am afraid this is not how it works. It is not up to us to find them a kernel version which solves the issue. As they have already proven that the latest kernel fixes the issue I am afraid that is the way to go. And the statement they only want to patch to the kernel which fixes this issue will also imply that they will need to patch every system to that kernel so sorry but this is nonsense.
+
+Have them patch to the latest and greatest, which btw. also will make their systems being running in a supported state again, and their issue is solved.
+
+So having written the above I am afraid I have to refuse this CR with the above statement.
+
+Thank you very much.
+
+With kind regards,
+--------

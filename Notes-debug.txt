@@ -211,17 +211,19 @@ ntptime
 连续两次ntptime查看 offset  是否有变化，如果咩有，排查上级时钟源
 排查上级时钟源不稳
 ---------
-Hi， SUSE后线工程师反馈，这个问题需要升级内核版本到4.12.14-122.201.1 （之前已反馈升级到这个内核版本不会出现问题）
-详请查看回复原文：
-
 [EAR - NOT FOR USA Citizens] the nfs client gets stuck - ATAE
+Hi， SUSE后线工程师反馈，这个问题需要从内核版本4.12.14-122.103.1（Dec-02-2021）升级内核版本到4.12.14-122.201.1(Mar-18-2024) 
+（之前已反馈升级到这个内核版本不会出现问题）
+
+详请请查看suse后线工程师回复原文：
+<snip>
+
 I am afraid this is not how it works. It is not up to us to find them a kernel version which solves the issue. As they have already proven that the latest kernel fixes the issue I am afraid that is the way to go. And the statement they only want to patch to the kernel which fixes this issue will also imply that they will need to patch every system to that kernel so sorry but this is nonsense.
 
 Have them patch to the latest and greatest, which btw. also will make their systems being running in a supported state again, and their issue is solved.
 
 So having written the above I am afraid I have to refuse this CR with the above statement.
-
 Thank you very much.
-
 With kind regards,
+</snip>
 --------

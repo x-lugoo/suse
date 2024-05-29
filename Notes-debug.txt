@@ -210,6 +210,7 @@ ntptime
 
 连续两次ntptime查看 offset  是否有变化，如果咩有，排查上级时钟源
 排查上级时钟源不稳
+# ntpq -p; ntptime;sleep 1;ntptime
 ---------
 [EAR - NOT FOR USA Citizens] the nfs client gets stuck - ATAE
 Hi， SUSE后线工程师反馈，这个问题需要从内核版本4.12.14-122.103.1（Dec-02-2021）升级内核版本到4.12.14-122.201.1(Mar-18-2024) 

@@ -228,3 +228,14 @@ Thank you very much.
 With kind regards,
 </snip>
 --------
+
+https://access.redhat.com/articles/1476193
+
+URI             ldaps://rhel7-64.example.com/
+TLS_CACERT      /etc/openldap/rhel7-64.example.com.ca.pem
+TLS_REQCERT     demand
+TLS_CIPHERS   ECDHE-RSA-AES256-SHA384:AES256-SHA256:!RC4:HIGH:!MD5:!aNULL:!EDH:!EXP:!SSLV2:!eNULL
+TLS_PROTOCOL_MIN 3.3
+
+
+

@@ -228,6 +228,7 @@ Thank you very much.
 With kind regards,
 </snip>
 --------
+SUSE12SP2 ldapclient 用yast user 进去 选择ldap user 输入正确的ldapserver的密码报错 连接不上，帮忙给点建议
 
 https://access.redhat.com/articles/1476193
 

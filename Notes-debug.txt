@@ -246,4 +246,19 @@ Bug 1214453 - [EAR - NOT FOR USA Citizens] Some D processes and nfs connectio
 Bug 1217525 - [EAR - NOT FOR USA Citizens] NFS Client hungs (edit)
 https://bugzilla.suse.com/show_bug.cgi?id=1217525
  kernel-source-4.12.14-122.194 或以上
+--------
+https://www.freedesktop.org/software/systemd/man/latest/hostname.html
+Hostname semantics
+systemd(1) and the associated tools will obtain the hostname in the following ways:
 
+If the kernel command line parameter systemd.hostname= specifies a valid hostname, systemd(1) will use it to set the hostname during early boot, see kernel-command-line(7),
+
+Otherwise, the "static" hostname specified by /etc/hostname as described above will be used.
+
+Otherwise, a transient hostname may be set during runtime, for example based on information in a DHCP lease, see systemd-hostnamed.service(8). Both NetworkManager and systemd-networkd.service(8) allow this. Note that systemd-hostnamed.service(8) gives higher priority to the static hostname, so the transient hostname will only be used if the static hostname is not configured.
+
+Otherwise, a fallback hostname configured at compilation time will be used ("localhost").
+
+Effectively, the static hostname has higher priority than a transient hostname, which has higher priority than the fallback hostname. Transient hostnames are equivalent, so setting a new transient hostname causes the previous transient hostname to be forgotten. The hostname specified on the kernel command line is like a transient hostname, with the exception that it has higher priority when the machine boots. Also note that those are the semantics implemented by systemd tools, but other programs may also set the hostname.
+
+------

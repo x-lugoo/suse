@@ -262,3 +262,4 @@ Otherwise, a fallback hostname configured at compilation time will be used ("loc
 Effectively, the static hostname has higher priority than a transient hostname, which has higher priority than the fallback hostname. Transient hostnames are equivalent, so setting a new transient hostname causes the previous transient hostname to be forgotten. The hostname specified on the kernel command line is like a transient hostname, with the exception that it has higher priority when the machine boots. Also note that those are the semantics implemented by systemd tools, but other programs may also set the hostname.
 
 ------
+ldapsearch -x -H ldaps://your_ldap_server:636 -D "cn=admin,dc=t4,dc=cps" -W

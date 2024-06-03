@@ -264,3 +264,8 @@ Effectively, the static hostname has higher priority than a transient hostname, 
 ------
 ldapsearch -x -H ldaps://your_ldap_server:636 -D "cn=admin,dc=t4,dc=cps" -W
 https://www.suse.com/support/kb/doc/?id=000017935
+
+
+denis.kabugi.maingi@h-partners.com
+xiamingyang4@h-partners.com
+

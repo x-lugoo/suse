@@ -269,3 +269,5 @@ https://www.suse.com/support/kb/doc/?id=000017935
 denis.kabugi.maingi@h-partners.com
 xiamingyang4@h-partners.com
 
+https://documentation.suse.com/sles/12-SP5/html/SLES-all/cha-security-ldap.html
+

@@ -270,4 +270,15 @@ denis.kabugi.maingi@h-partners.com
 xiamingyang4@h-partners.com
 
 https://documentation.suse.com/sles/12-SP5/html/SLES-all/cha-security-ldap.html
+Considering 12sp2 is Extreme LTSS I cannot really take this to the L3.
+However the same thing happens on 12sp5.
+Even if I open L3 for 12sp5 I do not think developers would be willing to backport it to 12sp2 after fixing it.
+
+Would the customer be willing to bump the server to 12sp5 or even 15sp5?
+
+If not finding other ways to do what they need is the only way I am afraid.
+(Like using Apache directory studio or command line ldapadd)
+
+Huawei is entitled to request L3 PTFs for security flaws and critical issues
+This case definitely does not fall into that category.
 

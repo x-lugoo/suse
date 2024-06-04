@@ -289,7 +289,7 @@ https://access.redhat.com/documentation/en-us/red_hat_directory_server/11/html/a
 ou : 表示组织
 dc : 表示域名
 
-    cn: 条目的通用名称
+    cn: 条目的通用名称     // ldapadd 等命令需要使用admin的cn来操作
     ou: 条目所属的组织单位(Organizational Unit)
     dc: 条目所属的域或子域
 

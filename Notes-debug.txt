@@ -293,3 +293,47 @@ dc : 表示域名
     ou: 条目所属的组织单位(Organizational Unit)
     dc: 条目所属的域或子域
 
+
+ldapsearch -x -w jeff   -D cn=Administrator,dc=jeff
+
+查询到已有的ldap user (xiaoming):
+# xiaoming, people, jeff
+dn: uid=xiaoming,ou=people,dc=jeff
+cn: ming xiao
+gidNumber: 100
+givenName: ming
+homeDirectory: /home/xiaoming
+loginShell: /bin/bash
+objectClass: top
+objectClass: posixAccount
+objectClass: inetOrgPerson
+sn: xiao
+uid: xiaoming
+uidNumber: 1002
+userPassword:: e3NzaGF9Rmxka0NGUjRUcXplRzRLVCtoR3ROTkRtRFNSU1EwSkhSdz09
+
+创建类似的ldap用户
+#ldapadd -D  cn=Administrator,dc=jeff -x -w jeff -f ./t.ldif 
+
+12sp2:/home/jeff/ldap # cat ./t.ldif 
+
+# xiaoming, people, jeff
+dn: uid=xiaohong,ou=people,dc=jeff
+cn: hong xiao
+gidNumber: 100
+givenName: hong 
+homeDirectory: /home/xiaohong
+loginShell: /bin/bash
+objectClass: top
+objectClass: posixAccount
+objectClass: inetOrgPerson
+sn: xiao 
+uid: xiaohong
+uidNumber: 1003
+userPassword: xiaohong
+
+删除ldap用户：
+ldapdelete -D  cn=Administrator,dc=jeff -x -w jeff "uid=xiaohong,ou=people,dc=jeff"
+
+
+

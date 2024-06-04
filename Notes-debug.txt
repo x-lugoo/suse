@@ -285,3 +285,4 @@ This case definitely does not fall into that category.
 RFC 2849
 https://en.wikipedia.org/wiki/LDAP_Data_Interchange_Format
 https://datatracker.ietf.org/doc/html/rfc2849
+https://access.redhat.com/documentation/en-us/red_hat_directory_server/11/html/administration_guide/managing_directory_entries

@@ -282,3 +282,5 @@ If not finding other ways to do what they need is the only way I am afraid.
 Huawei is entitled to request L3 PTFs for security flaws and critical issues
 This case definitely does not fall into that category.
 
+RFC 2849
+https://en.wikipedia.org/wiki/LDAP_Data_Interchange_Format

@@ -353,4 +353,7 @@ AppArmor与SELinux类似，也是一个强制访问控制框架，但它通过�
     易用性: SELinux配置相对复杂，学习曲线较陡。AppArmor更易于理解和配置。SECCOMP则相比之下更为简单直接，但功能也更为基础
 
 
-
+ # zcat /proc/config.gz | grep seccomp -i
+CONFIG_HAVE_ARCH_SECCOMP_FILTER=y
+CONFIG_SECCOMP_FILTER=y
+CONFIG_SECCOMP=y

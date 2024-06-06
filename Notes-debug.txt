@@ -335,5 +335,22 @@ userPassword: xiaohong
 删除ldap用户：
 ldapdelete -D  cn=Administrator,dc=jeff -x -w jeff "uid=xiaohong,ou=people,dc=jeff"
 
+SECCOMP是一种限制进程能够执行的系统调用的机制。它主要用于限制已运行程序的系统级访问，以减少潜在的攻击面和防止漏洞被利用。SECCOMP有两个模式：
+
+    SECCOMP_MODE_STRICT: 只允许read(), write(), _exit()和sigreturn()四个系统调用。
+    SECCOMP_MODE_FILTER: 允许细粒度的控制，可以定义一个过滤器来指定哪些系统调用是允许的，哪些是被禁止的。
+
+2. SELinux
+
+SELinux是一个强制访问控制（MAC）安全架构，它使用安全策略来管理进程和用户可以访问和操作的资源（如文件、设备、网络端口等）。SELinux通过类型强制（TE）、角色强制（RBAC）和多级安全（MLS）提供广泛的安全情景。它更加复杂，能够提供细粒度的安全策略管理。
+3. AppArmor
+
+AppArmor与SELinux类似，也是一个强制访问控制框架，但它通过路径名访问控制，更侧重于简化的策略和易于配置。AppArmor使用“profiles”对程序的行为进行限制，这些“profiles”定义了程序可以访问的资源和执行的操作。
+区别
+
+    实现方式: SECCOMP通过减少可用的系统调用集来工作，主要关注于系统调用级别。而SELinux和AppArmor则提供了基于策略的访问控制，可以详细指定哪些用户和程序可以访问系统的哪些部分。
+    控制粒度: SELinux提供非常细粒度的控制，适用于需要高度安全性的环境。AppArmor更易于使用和配置，粒度略低于SELinux。SECCOMP专注于系统调用，不涉及文件系统等其他方面的权限控制。
+    易用性: SELinux配置相对复杂，学习曲线较陡。AppArmor更易于理解和配置。SECCOMP则相比之下更为简单直接，但功能也更为基础
+
 
 
